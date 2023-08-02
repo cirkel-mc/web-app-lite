@@ -10,11 +10,15 @@ import DateTime from './DateTime'
 const HomeFilter = () => {
   return (
     <Fragment>
-      <div className='w-full max-w-[500px] bg-neutral-100 px-4 py-4 rounded-md -z-[1]' style={{ boxShadow: '0px 8px 16px rgba(3,18,26,0.20)' }}>
+      <div className='w-full max-w-[500px] bg-white px-4 py-4 rounded-lg -z-[1]' style={{ boxShadow: '0px 8px 16px rgba(3,18,26,0.20)' }}>
         <Location />
         <div className='flex justify-between mt-3 mb-3 gap-2'>
-          <DateTime label='Select Date' type='date' />
-          <DateTime label='Select Time' type='time' />
+          <div className='w-2/3'>
+            <DateTime type='date' />
+          </div>
+          <div className='1/3'>
+            <DateTime type='time' />
+          </div>
         </div>
         <Button size='lg' round='full' classes='w-full' variant='primary'>Find Now</Button>
       </div>

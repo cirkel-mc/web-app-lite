@@ -1,18 +1,26 @@
 import React from 'react'
+import type { FC } from 'react'
+
 import Card from './Card'
 
-const AvatarCarousel = () => {
+type AvatarCarouselData = {
+  id: number
+  name: string;
+  image: string;
+  instrument: string;
+}
+
+interface AvatarCarouselProps {
+  title: string;
+  data: AvatarCarouselData[]
+}
+
+const AvatarCarousel: FC<AvatarCarouselProps> = ({ title, data }) => {
   return (
     <div className='mt-8 pr-4'>
-      <p className='text-base font-medium mb-4'>Recommended Musician</p>
+      <p className='text-base font-medium mb-4'>{title}</p>
       <div className='flex gap-2 flex-nowrap overflow-auto pb-2' style={{ width: 'calc(100% + 20px)' }}>
-        <Card key={1} />
-        <Card key={2} />
-        <Card key={3} />
-        <Card key={4} />
-        <Card key={5} />
-        <Card key={6} />
-        <Card key={7} />
+        {data.map((item, index) => <Card key={index} name={item.name} image={item.image} instrument={item.instrument} />)}
       </div>
     </div>
   )
