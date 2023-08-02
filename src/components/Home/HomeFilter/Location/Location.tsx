@@ -15,7 +15,7 @@ const Location = () => {
         <div className='flex justify-between px-3'>
           <div className='flex'>
             <IconLocation className='fill-red-600 text-white' />
-            <p className='text-base ml-3'>Your location</p>
+            <p className='text-sm ml-3'>Your location</p>
           </div>
           <IconUnfold />
         </div>
