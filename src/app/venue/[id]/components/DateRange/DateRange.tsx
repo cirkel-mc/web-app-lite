@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 const DateRange = () => {
-  const [value, setValue] = React.useState(new Date('2023-07-18T21:11:54'));
+  const [value, setValue] = React.useState();
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -15,7 +15,7 @@ const DateRange = () => {
         <p className='text-sm mb-2'>Choose Date</p>
         <MobileDatePicker
           // @ts-ignore
-          inputFormat="DD/MMM/yyyy"
+          inputFormat="DD MMMM yyyy"
           value={value}
           onChange={() => { }}
           renderInput={(params: any) => <TextField {...params} />}

@@ -30,3 +30,7 @@ html
   animation-name: placeholderShimmer;
   animation-timing-function: linear;
 }
+
+#home-filter-calendar .MuiFormControl-root.MuiTextField-root {
+  display: none;
+}

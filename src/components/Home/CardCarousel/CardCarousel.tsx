@@ -1,30 +1,41 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React from 'react'
+import type { FC } from 'react'
+
 import Card from './Card'
 import { useRouter } from 'next/navigation'
 
-const AvatarCarousel = () => {
+type DataAvatarCarousel = {
+  id: number;
+  image: string;
+  title: string;
+  price: string;
+  address: string
+}
+
+interface CardCarouselProps {
+  title: string;
+  data: DataAvatarCarousel[]
+}
+
+
+const CardCarousel: FC<CardCarouselProps> = (props) => {
+  const { title, data } = props
   const router = useRouter()
 
-  const handleRedirect = () => {
-    router.push('/venue/1')
+  const handleRedirect = (id: number) => {
+    router.push(`/venue/${id}`)
   }
 
   return (
     <div className='mt-8 pr-4'>
-      <p className='text-base font-medium mb-2'>Near Me</p>
+      <p className='text-base font-medium mb-2'>{title}</p>
       <div className='flex gap-2 flex-nowrap overflow-auto pb-2' style={{ width: 'calc(100% + 20px)' }}>
-        <Card key={1} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={2} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={3} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={4} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={5} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={6} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
-        <Card key={7} src='https://www.wearemania.net/ngalam/wp-content/uploads/2020/11/20201130_Daftar-Alamat-Studio-Musik-di-Malang-Raya.jpg' title='studio Arema' price='Rp 150.000' onClick={handleRedirect} />
+        {data.map((item, index) => <Card key={index} src={item.image} title={item.title} price={item.price} onClick={() => handleRedirect(item.id)} />)}
       </div>
     </div>
   )
 }
 
-export default AvatarCarousel
+export default CardCarousel

@@ -21,7 +21,7 @@ const RootLayout: FC<RootLayoutProps> = (props) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className='max-w-[500px] mr-auto ml-auto pb-6'>
+        <main className='max-w-[500px] mr-auto ml-auto'>
           {children}
         </main>
       </body>
