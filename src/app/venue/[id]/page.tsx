@@ -14,7 +14,7 @@ const VenueDetail = () => {
     <StyledEngineProvider injectFirst>
       <Fragment>
         <Media />
-        <div className='px-4'>
+        <div className='px-4 pb-[80px]'>
           <Title title='Studio Rawamangun' />
           <DateRange />
           <AvailableTime />
