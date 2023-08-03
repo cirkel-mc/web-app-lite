@@ -2,8 +2,9 @@
 
 import { Fragment, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
-import Menu from "./Menu"
+const Menu = dynamic(() => import('./Menu'))
 
 const TopNavigation = () => {
   const router = useRouter()
@@ -21,7 +22,7 @@ const TopNavigation = () => {
           </div>
         </div>
       </div>
-      <Menu show={isShow} />
+      {isShow && <Menu show={isShow} />}
     </Fragment>
   )
 }

@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react'
+import dynamic from 'next/dynamic'
 
 import IconLocation from '@/components/Icons/Location'
 import IconUnfold from '@/components/Icons/Unfold'
-import BottomSheet from '@/components/BottomSheet'
 
-import { cities } from '@/model/mock-data/cities'
+const BottomSheetLocation = dynamic(() => import('./BottomSheet'))
 
 const Location = () => {
   const [openLocation, setOpenLocation] = useState(false)
@@ -21,12 +21,7 @@ const Location = () => {
           <IconUnfold />
         </div>
       </div>
-      <BottomSheet title="Location" open={openLocation} onClose={() => setOpenLocation(false)}>
-        <div className='h-[280px] overflow-y-auto'>
-          {/* @ts-ignore  */}
-          {cities.map((item, index) => <div key={index} className='hover:bg-sky-200 rounded-sm px-2 py-3 border-b border-gray-400 last:border-none' onClick={(e) => { console.log(e.currentTarget.textContent); setLocation(e.currentTarget.textContent)}}>{item}</div>)}
-        </div>
-      </BottomSheet>
+      {openLocation && <BottomSheetLocation open={openLocation} onClose={() => setOpenLocation(false)} onClick={(e) => { console.log(e.currentTarget.textContent); setLocation(e.currentTarget.textContent) }} />}
     </Fragment>
   )
 }
