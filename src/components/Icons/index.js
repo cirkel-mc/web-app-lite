@@ -1,3 +1,6 @@
+export { default as Dana } from "./Dana";
+export { default as Gopay } from "./Gopay";
+export { default as Ovo } from "./Ovo";
 export { default as Back } from "./Back";
 export { default as BurgerIcon } from "./BurgerIcon";
 export { default as Calendar } from "./Calendar";

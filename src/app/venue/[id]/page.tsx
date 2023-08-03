@@ -8,6 +8,7 @@ import DateRange from './components/DateRange'
 import AvailableTime from './components/AvailableTime'
 import Description from './components/Description/Description';
 import PurchaseBox from './components/PurchaseBox';
+import Loading from './loading';
 
 const VenueDetail = () => {
   return (
