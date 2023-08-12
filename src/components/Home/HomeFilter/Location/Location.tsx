@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 import IconLocation from '@/components/Icons/Location'
@@ -21,7 +21,7 @@ const Location = () => {
           <IconUnfold />
         </div>
       </div>
-      {openLocation && <BottomSheetLocation open={openLocation} onClose={() => setOpenLocation(false)} onClick={(e) => { console.log(e.currentTarget.textContent); setLocation(e.currentTarget.textContent) }} />}
+      {<BottomSheetLocation open={openLocation} onClose={() => setOpenLocation(false)} onClick={(e) => { console.log(e.currentTarget.textContent); setLocation(e.currentTarget.textContent) }} />}
     </Fragment>
   )
 }
