@@ -25,7 +25,7 @@ const CardCarousel: FC<CardCarouselProps> = (props) => {
   const router = useRouter()
 
   const handleRedirect = (id: number) => {
-    router.push(`/venue/${id}`)
+    window.location.assign(`/venue/${id}`)
   }
 
   return (
