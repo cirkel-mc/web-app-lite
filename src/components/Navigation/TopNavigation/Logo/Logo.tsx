@@ -1,8 +1,12 @@
+"use client"
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 const Logo = () => {
+  const router = useRouter()
+
   return (
-    <div className="shimmer rounded-full bg-slate-500 w-10 h-10 flex justify-center items-center">Logo</div>
+    <p className="text-3xl text-sky-50" onClick={() => router.push('/')}>Comrades</p>
   )
 }
 
