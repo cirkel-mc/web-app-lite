@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from "react"
 
 interface WindowDimentions {
-  width: number | undefined;
-  height: number | undefined;
+  width: number;
+  height: number;
 };
 
 const useScreenSize = (): WindowDimentions => {
-  const [windowDimensions, setWindowDimensions] = useState<WindowDimentions>({
-    width: undefined,
-    height: undefined,
+  const [windowDimensions, setWindowDimensions] = useState<any>({
+    width: 0,
+    height: 0,
   });
 
   const handleResize = useCallback(() => {
@@ -24,7 +24,7 @@ const useScreenSize = (): WindowDimentions => {
     return () => window.removeEventListener('resize', handleResize);
   }, [handleResize]);
 
-  return windowDimensions;
+  return {width: windowDimensions.width, height: windowDimensions.height};
 }
 
 export default useScreenSize

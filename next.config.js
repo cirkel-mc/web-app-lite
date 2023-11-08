@@ -1,17 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "www.wearemania.net",
-      "2.bp.blogspot.com",
-      "i.pinimg.com",
-      "www.lazone.id",
-      "andreasagung.com",
-      "i1.sndcdn.com",
-      "id.yamaha.com",
-      "www.mldspot.com",
-      "orleeozora.com",
-      "media.licdn.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };
