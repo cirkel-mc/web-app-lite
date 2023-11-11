@@ -12,9 +12,9 @@ const Location = () => {
 
   return (
     <Fragment>
-      <div className='w-full min-w-[250px] rounded-full py-2 border-[1px] border-gray-400 bg-white cursor-pointer' onClick={() => setOpenLocation(true)}>
-        <div className='flex justify-between px-3'>
-          <div className='flex'>
+      <div className='w-full min-w-[250px] rounded-full py-1 border-[1px] border-gray-400 bg-white cursor-pointer lg:h-8' onClick={() => setOpenLocation(true)}>
+        <div className='flex justify-between px-3 items-center'>
+          <div className='flex items-center'>
             <IconLocation className='fill-red-600 text-white' />
             <p className='text-sm ml-3'>{location ? location : 'Your Location'}</p>
           </div>

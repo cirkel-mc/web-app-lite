@@ -8,7 +8,7 @@ const Popup = ({ onClose, onSubmit }: any) => {
     <Fragment>
       <div className='fixed left-0 top-0 z-10 bg-black opacity-50 w-full h-full' />
       <div className='flex flex-col justify-between fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-6 w-4/5 h-3/5 rounded-lg'>
-        <IconClose className='absolute' onClick={onClose} />
+        <IconClose className='absolute cursor-pointer' onClick={onClose} />
         <div>
           <p className='text-center font-bold text-lg'>Your Cart</p>
           <div className='flex items-center gap-2 justify-center mt-6'>

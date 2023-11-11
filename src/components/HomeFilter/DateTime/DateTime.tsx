@@ -64,7 +64,7 @@ const DateTime: FC<DateTimeProps> = (props) => {
 
   return (
     <Fragment>
-      <div className='flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-2 border-[1px] border-gray-400 bg-white text-sm' onClick={handleClick}>{Label} {Icon}</div>
+      <div className='flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 border-[1px] border-gray-400 bg-white text-sm lg:h-8' onClick={handleClick}>{Label} {Icon}</div>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         { openDate && <Calendar open={openDate} onClose={() => setOpenDate(false)} value={date} onChange={(newValue: any) => setDate(newValue)} /> }
         { openTime && <TimePicker open={openTime} onClose={() => setOpenTime(false)} value={time} onChange={(newValue: any) => setTime(newValue)} /> }
