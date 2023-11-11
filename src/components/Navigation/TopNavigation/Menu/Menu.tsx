@@ -15,6 +15,7 @@ const Menu = (props: MenuProps) => {
         <a key={0} className='text-cyan-600 hover:text-cyan-300' href='/venue'>Book venue</a>
         <a key={1} className='text-cyan-600 hover:text-cyan-300' href='/activities'>Jamming</a>
         <a key={2} className='text-cyan-600 hover:text-cyan-300' href='/learn'>Learn</a>
+        <a key={2} className='text-cyan-600 hover:text-cyan-300' href='/login'>Sign in</a>
       </div>
     </div>
   )
