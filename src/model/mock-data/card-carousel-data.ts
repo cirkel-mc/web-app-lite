@@ -41,5 +41,18 @@ export const cardCarouselData = [
     price: 'Rp 150.000',
     address: 'Tangerang'
   },
-  
+  {
+    id: 7,
+    title: 'DK Studio Music Green Lake',
+    image: 'https://andreasagung.com/wp-content/uploads/2017/10/Studio-Band-2.jpg.webp',
+    price: 'Rp 150.000',
+    address: 'Tangerang'
+  },
+  {
+    id: 8,
+    title: 'DK Studio Music Green Lake',
+    image: 'https://andreasagung.com/wp-content/uploads/2017/10/Studio-Band-2.jpg.webp',
+    price: 'Rp 150.000',
+    address: 'Tangerang'
+  },
 ]

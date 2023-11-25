@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import useScreenSize from '@/hooks/useScreenSize'
+import useScreenSize from '@/hooks/use-screen-size'
 
 import IconBack from '@/components/Icons/Back'
 import IconShare from '@/components/Icons/Share'
@@ -40,7 +40,6 @@ const Media = () => {
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance
 
-    console.log(ref.current)
     if (isLeftSwipe) {
       // @ts-ignore 
       ref.current.style.left = '0';

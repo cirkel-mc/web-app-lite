@@ -9,7 +9,7 @@ import DateTime from './DateTime'
 const HomeFilter = () => {
   return (
     <Fragment>
-      <div className='w-full bg-white px-4 py-4 rounded-lg -z-[1] md:w-4/5 mx-auto lg:flex lg:items-center lg:mb-16' style={{ boxShadow: '0px 8px 16px rgba(3,18,26,0.20)' }}>
+      <div className='w-full bg-white px-4 py-4 rounded-lg -z-[1] md:w-4/5  mx-auto lg:max-w-[1024px] lg:flex lg:items-center lg:mb-16' style={{ boxShadow: '0px 8px 16px rgba(3,18,26,0.20)' }}>
         <Location />
         <div className='flex justify-between mt-3 mb-3 gap-2 lg:mt-0 lg:mb-0 lg:items-center lg:ml-4'>
           <div className='w-[65%] h-full lg:mr-0 lg:w-[200px]'>
