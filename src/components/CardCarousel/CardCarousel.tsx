@@ -19,7 +19,6 @@ interface CardCarouselProps {
   data: DataAvatarCarousel[]
 }
 
-
 const CardCarousel: FC<CardCarouselProps> = (props) => {
   const { title, data } = props
   const router = useRouter()

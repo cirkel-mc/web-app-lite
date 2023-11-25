@@ -1,14 +1,15 @@
 import React from 'react'
 import type { FC } from 'react'
+import Link from 'next/link';
 
 interface MenuItemProps {
   title: string;
-  path: string;
+  href: string;
 }
 
-const MenuItem: FC<MenuItemProps> = ({ title, path }) => {
+const MenuItem: FC<MenuItemProps> = ({ title, href }) => {
   return (
-    <a className='text-cyan-600 hover:text-cyan-300 cursor-pointer' href={path}>{title}</a>
+    <Link className='text-teal-600 hover:text-teal-300 cursor-pointer' href={href}>{title}</Link>
   )
 }
 
