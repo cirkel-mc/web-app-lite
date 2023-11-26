@@ -54,7 +54,7 @@ const Onboarding = () => {
 
   return (
     <div className="w-screen h-screen bg-teal-500">
-      <div className="pt-6 px-10 pb-10 fixed w-full h-full  md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 shadow-1 rounded-lg bg-white md:max-w-[800px] overflow-auto md:min-w-[700px]">
+      <div className="pt-6 px-10 pb-10 fixed w-full h-full md:h-[unset]  md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 shadow-1 rounded-lg bg-white md:max-w-[800px] overflow-auto md:min-w-[700px]">
         {step === 1 ? (
           <div className="mb-6">
             <p className="text-lg leading-6 font-semibold text-center sm:text-2xl mb-1">
