@@ -53,7 +53,7 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-teal-500">
+    <div className="w-screen h-screen bg-sky-500">
       <div className="pt-6 px-10 pb-10 fixed w-full h-full md:h-[unset]  md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 shadow-1 rounded-lg bg-white md:max-w-[800px] overflow-auto md:min-w-[700px]">
         {step === 1 ? (
           <div className="mb-6">
@@ -80,7 +80,7 @@ const Onboarding = () => {
             <div
               className={clsx(
                 "p-4 w-full sm:w-1/2 rounded-2xl border-[2px]",
-                preference === "casual" ? "border-teal-500" : "border-gray-400"
+                preference === "casual" ? "border-sky-500" : "border-gray-400"
               )}
               onClick={handlePreference}
               data-value="casual"
@@ -96,7 +96,7 @@ const Onboarding = () => {
               className={clsx(
                 "p-4 w-full sm:w-1/2 rounded-2xl border-[2px]",
                 preference === "profesional"
-                  ? "border-teal-500"
+                  ? "border-sky-500"
                   : "border-gray-400"
               )}
               onClick={handlePreference}
@@ -118,7 +118,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "guitar"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="guitar"
@@ -130,7 +130,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "piano"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="piano"
@@ -142,7 +142,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "drum"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="drum"
@@ -154,7 +154,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "bass"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="bass"
@@ -166,7 +166,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "vocal"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="vocal"
@@ -178,7 +178,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "saxophone"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="saxophone"
@@ -191,7 +191,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "trumpet"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="trumpet"
@@ -203,7 +203,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "violin"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="violin"
@@ -215,7 +215,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "flute"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="flute"
@@ -227,7 +227,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "percussion"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="percussion"
@@ -239,7 +239,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   instrument === "harmonica"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="harmonica"
@@ -255,7 +255,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   level === "beginner"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="beginner"
@@ -267,7 +267,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   level === "intermediete"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="intermediete"
@@ -279,7 +279,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   level === "pro"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="pro"
@@ -295,7 +295,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "jazz"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="jazz"
@@ -307,7 +307,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "pop"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="pop"
@@ -319,7 +319,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "rock"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="rock"
@@ -331,7 +331,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "blues"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="blues"
@@ -343,7 +343,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "dangdut"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="dangdut"
@@ -355,7 +355,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "classic"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="classic"
@@ -367,7 +367,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "reggae"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="reggae"
@@ -379,7 +379,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "funk"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="funk"
@@ -391,7 +391,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "punk"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="punk"
@@ -403,7 +403,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "hiphop"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="hiphop"
@@ -415,7 +415,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "metal"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="metal"
@@ -427,7 +427,7 @@ const Onboarding = () => {
                 className={clsx(
                   "px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer",
                   genre === "electronic"
-                    ? "bg-teal-400  border-white text-white"
+                    ? "bg-sky-400  border-white text-white"
                     : "border-gray-400 text-gray-500"
                 )}
                 data-value="electronic"
@@ -452,7 +452,7 @@ const Onboarding = () => {
           <div className="w-full h-4 bg-gray-400 mx-4 rounded-2xl">
             <div
               className={clsx(
-                "w-0 h-4 rounded-2xl bg-teal-400 duration-300 ease-in-out",
+                "w-0 h-4 rounded-2xl bg-sky-400 duration-300 ease-in-out",
                 step === 2 ? "w-full" : "w-1/2"
               )}
             />

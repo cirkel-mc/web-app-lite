@@ -40,9 +40,9 @@ const Button = (props: ButtonProps) => {
   const switchVariant = (varBtn: string) => {
     switch (varBtn) {
       case 'primary':
-        return 'bg-teal-500 hover:bg-teal-400'
+        return 'bg-sky-500 hover:bg-sky-400'
       case 'secondary':
-        return 'bg-teal-100 hover:bg-teal-50'
+        return 'bg-sky-100 hover:bg-sky-50'
       default:
         return ''
     }

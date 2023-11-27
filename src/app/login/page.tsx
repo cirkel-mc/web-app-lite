@@ -44,7 +44,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-teal-400 w-screen h-screen">
+    <div className="bg-sky-400 w-screen h-screen">
       <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
         <div className="w-full md:width-2/5 p-4">
           <Title />
@@ -98,7 +98,7 @@ const LoginPage = () => {
           />
           <p className="text-xs mt-6 text-center">
             Does not have account?{" "}
-            <Link href="/register" className="text-teal-500">
+            <Link href="/register" className="text-sky-500">
               Sign up here
             </Link>
           </p>
