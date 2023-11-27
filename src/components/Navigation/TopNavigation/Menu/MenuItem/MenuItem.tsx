@@ -9,7 +9,7 @@ interface MenuItemProps {
 
 const MenuItem: FC<MenuItemProps> = ({ title, href }) => {
   return (
-    <Link className='text-teal-600 hover:text-teal-300 cursor-pointer' href={href}>{title}</Link>
+    <Link className='text-sky-600 hover:text-sky-300 cursor-pointer' href={href}>{title}</Link>
   )
 }
 
