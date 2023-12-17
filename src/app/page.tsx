@@ -8,7 +8,7 @@ import HomeFilter from '@/components/HomeFilter'
 import CardCarousel from '@/components/CardCarousel'
 import AvatarCarousel from '@/components/AvatarCarousel'
 import TopNavigation from '@/components/Navigation/TopNavigation'
-import Footer from '@/components/Footer'
+import BottomNavigation from '@/components/Navigation/BottomNavigation'
 import NavigationDesktop from '@/components/NavigationDesktop'
 
 import { cardCarouselData } from '@/model/mock-data/card-carousel-data'
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <div className='px-4 lg:px-0 mt-[100px] mb-[120px]'>
+      <div className='px-4 lg:px-0 mt-[100px] mb-[100px]'>
         {renderHeader()}
         <HomeFilter />
           <div className='lg:max-w-[1024px] mx-auto'>
@@ -33,7 +33,7 @@ const Home = () => {
             <CardCarousel title='Recomended Studio' data={cardCarouselData} />
           </div>
       </div>
-      <Footer />
+      <BottomNavigation />
     </Fragment>
   )
 }

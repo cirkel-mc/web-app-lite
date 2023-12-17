@@ -2,7 +2,7 @@
 
 import React, { Fragment, useState } from 'react'
 
-import Button from '@/ui/component/Button'
+import Button from '@/ui/components/Button'
 import Location from './Location'
 import DateTime from './DateTime'
 

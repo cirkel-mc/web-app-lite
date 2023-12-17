@@ -27,7 +27,7 @@ const Button = (props: ButtonProps) => {
       case 'sm':
         return 'px-1 py-1'
       case 'md':
-        return 'px-2 py-2'
+        return 'px-3 py-2'
       case 'lg':
         return 'px-4 py-2'
       case 'xl':
@@ -40,15 +40,15 @@ const Button = (props: ButtonProps) => {
   const switchVariant = (varBtn: string) => {
     switch (varBtn) {
       case 'primary':
-        return 'bg-sky-500 hover:bg-sky-400'
+        return 'bg-primary-40 hover:bg-primary-20'
       case 'secondary':
-        return 'bg-sky-100 hover:bg-sky-50'
+        return 'bg-secondary-50 hover:bg-secondary-40'
       default:
         return ''
     }
   }
 
-  let mergedClass = clsx('text-white', switchVariant(variant), switchSize(size), `rounded-${round}`,disabled ? '!bg-gray-400 !hover:bg-gray-400 !focus:bg-gray-400' : '' , classes)
+  let mergedClass = clsx('text-white !rounded-[20px]', switchVariant(variant), switchSize(size), `rounded-${round}`,disabled ? '!bg-gray-400 !hover:bg-gray-400 !focus:bg-gray-400' : '' , classes)
 
   return (
     <button

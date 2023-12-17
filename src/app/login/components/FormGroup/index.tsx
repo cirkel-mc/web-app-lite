@@ -18,8 +18,6 @@ const FormGroup = (props: FormGroupProps) => {
     // onChange(e); 
   }
 
-  console.log({...rest})
-
   return (
     <div className="mb-4 w-full">
       <p className="text-sm mb-1">{label}:</p>

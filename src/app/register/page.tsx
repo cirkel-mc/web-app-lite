@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Button from "@/ui/component/Button";
+import Button from "@/ui/components/Button";
 
 import { Sound, Google } from "iconsax-react";
 import Select, { StylesConfig } from "react-select";
@@ -58,7 +58,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-sky-400">
+    <div className="w-screen h-screen bg-primary-400">
       <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
         <div className="w-full md:width-2/5 p-4">
           <Title />
@@ -143,7 +143,7 @@ const RegisterPage = () => {
           />
           <p className="text-xs mt-6 text-center">
             Already have account?{" "}
-            <Link href="/login" className="text-sky-500">
+            <Link href="/login" className="text-primary-500">
               Sign in here
             </Link>
           </p>

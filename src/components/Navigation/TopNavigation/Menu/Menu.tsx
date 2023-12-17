@@ -2,7 +2,15 @@ import React from "react";
 import clsx from "clsx";
 import BottomSheet from "@/components/BottomSheet";
 import { useAuth } from "@/hooks/use-auth";
-import { Reserve, MusicPlay, Notepad2, Profile, LoginCurve } from "iconsax-react";
+import {
+  Reserve,
+  MusicPlay,
+  Notepad2,
+  Profile,
+  LoginCurve,
+  Note,
+  AudioSquare,
+} from "iconsax-react";
 import Link from "next/link";
 
 interface MenuProps {
@@ -16,47 +24,55 @@ const Menu = (props: MenuProps) => {
 
   return (
     <BottomSheet title="My Menu" open={show} onClose={onClose}>
-      <div className="pt-4 pl-3 pb-4 flex flex-col gap-5 max-w-[500px] mx-auto md:max-w-[700px] lg:max-w-[1024px]">
+      <div className="pt-4 pl-3 pb-4 flex flex-col gap-7 max-w-[500px] mx-auto md:max-w-[700px] lg:max-w-[1024px]">
         <Link
           key={0}
-          className="text-gray-400 hover:text-sky-300 flex gap-2 items-center"
+          className="text-black hover:opacity-60 flex gap-2 items-center"
           href="/venue"
         >
-          <Reserve size="24" color="#FF8A65" variant="Bold" />
+          <Reserve size="24" color="#0A0A0A" />
           Book venue
         </Link>
         <Link
           key={1}
-          className="text-gray-400 hover:text-sky-300 flex gap-2 items-center"
+          className="text-black hover:opacity-60 flex gap-2 items-center"
           href="/activities"
         >
-          <MusicPlay size="24" color="#FF8A65" variant="Bold" />
+          <MusicPlay size="24" color="#0A0A0A" />
           Jamming
         </Link>
         <Link
           key={2}
-          className="text-gray-400 hover:text-sky-300 flex gap-2 items-center"
+          className="text-black hover:opacity-60 flex gap-2 items-center"
           href="/learn"
         >
-          <Notepad2 size="24" color="#FF8A65" variant="Bold" />
+          <AudioSquare size="24" color="#0A0A0A" />
           Learn
+        </Link>
+        <Link
+          key={2}
+          className="text-black hover:opacity-60 flex gap-2 items-center"
+          href="/learn"
+        >
+          <Note size="24" color="#0A0A0A" />
+          Blog
         </Link>
         {isAuth ? (
           <Link
             key={2}
-            className="text-gray-400 hover:text-sky-300 flex gap-2 items-center"
+            className="text-black hover:opacity-60 flex gap-2 items-center"
             href="/profile"
           >
-            <Profile size="24" color="#FF8A65" variant="Bold" />
+            <Profile size="24" color="#0A0A0A" />
             Profile
           </Link>
         ) : (
           <Link
             key={2}
-            className="text-gray-400 hover:text-sky-300 flex gap-2 items-center"
+            className="text-black hover:opacity-60 flex gap-2 items-center"
             href="/login"
           >
-            <LoginCurve size="24" color="#FF8A65" variant="Bold" />
+            <LoginCurve size="24" color="#0A0A0A" />
             Sign in
           </Link>
         )}

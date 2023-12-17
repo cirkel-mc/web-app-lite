@@ -18,21 +18,15 @@ export const avatarCarouselData = [
     instrument: 'Drum'
   },
   {
-    id: 4,
-    name: 'Ade Avery',
-    image: 'https://www.mldspot.com/storage/generated/June2021/Ade%20Avery.jpg',
-    instrument: 'Guitar'
-  },
-  {
     id: 5,
     name: 'Ibrani Pandean',
-    image: 'https://orleeozora.com/wp-content/uploads/2018/09/ibranipandean_02.jpg',
+    image: null,
     instrument: 'Bass'
   },
   {
     id: 6,
     name: 'Ben Silaban',
-    image: 'https://media.licdn.com/dms/image/C5603AQGHMbqtx3n9Rg/profile-displayphoto-shrink_400_400/0/1640794611179?e=1696464000&v=beta&t=ZOr5tICcK5iriFgpl3Cj50C9waBgePGNEf6CGLYoCy0',
+    image: null,
     instrument: 'Keyboard'
   },
 ]

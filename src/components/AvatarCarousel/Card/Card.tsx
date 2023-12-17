@@ -1,6 +1,7 @@
-import React from 'react'
-import type { FC } from 'react'
-import Image from 'next/image'
+import React from "react";
+import type { FC } from "react";
+import Image from "next/image";
+import PlaceholderCardImage from '@/assets/PlaceholderCardImage.png'
 
 interface CardProps {
   name: string;
@@ -8,24 +9,28 @@ interface CardProps {
   instrument: string;
 }
 
-const Card: FC<CardProps> = ({name, image, instrument}) => {
+const Card: FC<CardProps> = ({ name, image, instrument }) => {
   return (
-    <div className='flex flex-col justify-center items-center min-w-[140px] max-w-[140px] cursor-pointer lg:min-w-[148px] lg:h-[230px]'>
-      <div className='relative rounded-full bg-slate-400 w-[120px] h-[120px] lg:min-w-[148px] lg:h-[148px]'>
+    <div
+      className="p-5 flex flex-col justify-center items-center rounded-[10px] cursor-pointer w-[193px] h-[239px]"
+      style={{ boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 6px 0px" }}
+    >
+      <div className="relative rounded-full bg-slate-400 w-[136px] h-[136px]">
         <Image
-          src={image}
+          src={image ?? PlaceholderCardImage}
           alt=""
           fill
-          className='rounded-full object-center object-cover cursor-pointer'
+          className="rounded-full object-center object-cover cursor-pointer"
           priority={false}
+          style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className='w-full mt-4 shadow-lg text-sm text-left px-2 py-2 rounded-md lg:px-4'>
-        <p className='mb-[2px] cursor-pointer text-center'>{name}</p>
-        <p className='text-xs text-gray-400 text-center'>{instrument}</p>
-      </div>
+      <p className="mt-2 text-base lg:text-[24px] text-center font-semibold text-ellipsis overflow-hidden line-clamp-2 leading-8">
+        {name}
+      </p>
+      <p>{instrument}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
