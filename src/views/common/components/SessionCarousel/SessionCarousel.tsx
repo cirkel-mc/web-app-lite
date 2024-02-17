@@ -3,7 +3,7 @@ import Card from './Card'
 
 const SessionCarousel = () => {
   return (
-    <div className='flex gap-4'>
+    <div className='flex gap-4 overflow-auto py-2 px-1'>
       <Card />
       <Card />
       <Card />
