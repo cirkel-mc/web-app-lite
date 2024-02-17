@@ -22,24 +22,37 @@ const Description = () => {
   }, [current])
 
   return (
-    <div className='mt-6'>
-      <div className='flex gap-4'>
-        <div className='cursor-pointer' onClick={() => setCurrent('info')}>
+    <div className="mt-6">
+      <div className="flex gap-4">
+        <div className="cursor-pointer" onClick={() => setCurrent('info')}>
           <div>Description</div>
-          <div className={clsx('transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100', current === 'info' ? 'w-full' : 'w-0')} />
+          <div
+            className={clsx(
+              'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
+              current === 'info' ? 'w-full' : 'w-0',
+            )}
+          />
         </div>
-        <div className='cursor-pointer' onClick={() => setCurrent('get')}>
+        <div className="cursor-pointer" onClick={() => setCurrent('get')}>
           <div>Facility</div>
-          <div className={clsx('transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100', current === 'get' ? 'w-full' : 'w-0')} />
+          <div
+            className={clsx(
+              'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
+              current === 'get' ? 'w-full' : 'w-0',
+            )}
+          />
         </div>
-        <div className='cursor-pointer' onClick={() => setCurrent('terms')}>
+        <div className="cursor-pointer" onClick={() => setCurrent('terms')}>
           <div>Terms</div>
-          <div className={clsx('transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100', current === 'terms' ? 'w-full' : 'w-0')} />
+          <div
+            className={clsx(
+              'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
+              current === 'terms' ? 'w-full' : 'w-0',
+            )}
+          />
         </div>
       </div>
-      <div className='py-4'>
-        {renderDesc}
-      </div>
+      <div className="py-4">{renderDesc}</div>
     </div>
   )
 }

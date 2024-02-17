@@ -1,50 +1,50 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import Button from "@/ui/component/Button";
-import { Sound, Google } from "iconsax-react";
-import FormGroup from "./components/FormGroup";
-import Title from "./components/Title";
-import Subtitle from "./components/Subtitle";
-import Divider from "./components/Divider";
-import ThirdPartyLogin from "./components/ThirdPartyLogin";
-import Banner from "./components/Banner";
-import ErrorMessage from "./components/ErrorMessage";
-import { cookie } from "@/utils/cookie";
-import { loginSchema } from "@/model/schema/login";
+import Button from '@/views/common/ui/components/Button'
+import { Sound, Google } from 'iconsax-react'
+import FormGroup from './components/FormGroup'
+import Title from './components/Title'
+import Subtitle from './components/Subtitle'
+import Divider from './components/Divider'
+import ThirdPartyLogin from './components/ThirdPartyLogin'
+import Banner from './components/Banner'
+import ErrorMessage from './components/ErrorMessage'
+import { cookie } from '@/utils/cookie/cookie'
+import { loginSchema } from '@/models/login/schema/login'
 
 interface LoginForm {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
 const LoginPage = () => {
-  const router = useRouter();
+  const router = useRouter()
   const form = useForm<LoginForm>({
     defaultValues: {
       email: '',
       password: '',
     },
     resolver: yupResolver(loginSchema),
-    mode: 'all'
-  });
+    mode: 'all',
+  })
 
-  const { register, handleSubmit, formState } = form;
-  const { errors } = formState;
+  const { register, handleSubmit, formState } = form
+  const { errors } = formState
 
   const onSubmit = (data: LoginForm) => {
-    cookie.set('user', { email: data.email })
+    cookie.set('user', JSON.stringify(data.email))
     router.push('/')
-  };
+  }
 
   return (
-    <div className="bg-sky-400 w-screen h-screen">
+    <div className="bg-primary-40 w-screen h-screen">
       <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
         <div className="w-full md:width-2/5 p-4">
           <Title />
@@ -60,7 +60,9 @@ const LoginPage = () => {
                 {...register('email')}
               />
             </div>
-            {errors.email && <ErrorMessage>{errors?.email?.message}</ErrorMessage>}
+            {errors.email && (
+              <ErrorMessage>{errors?.email?.message}</ErrorMessage>
+            )}
             <div className="mb-4" />
             <div className="mb-4 w-full">
               <p className="text-sm mb-1">Password</p>
@@ -72,7 +74,9 @@ const LoginPage = () => {
                 {...register('password')}
               />
             </div>
-            {errors.password && <ErrorMessage>{errors?.password?.message}</ErrorMessage>}
+            {errors.password && (
+              <ErrorMessage>{errors?.password?.message}</ErrorMessage>
+            )}
             <Button
               disabled={!!errors?.email || !!errors?.password}
               classes="w-full mt-6 text-sm py-2"
@@ -97,8 +101,8 @@ const LoginPage = () => {
             text="Sign in with SoundCloud"
           />
           <p className="text-xs mt-6 text-center">
-            Does not have account?{" "}
-            <Link href="/register" className="text-sky-500">
+            Does not have account?{' '}
+            <Link href="/register" className="text-primary-500">
               Sign up here
             </Link>
           </p>
@@ -106,7 +110,7 @@ const LoginPage = () => {
         <Banner />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

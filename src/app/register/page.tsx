@@ -1,64 +1,64 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import React, { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import Button from "@/ui/component/Button";
+import Button from '@/views/common/ui/components/Button'
 
-import { Sound, Google } from "iconsax-react";
-import Select, { StylesConfig } from "react-select";
-import makeAnimated from "react-select/animated";
-import { cityOptions } from "@/model/mock-data/cities";
-import { cookie } from "@/utils/cookie";
-import { registerSchema } from "@/model/schema/register";
-import Title from "./components/Title";
-import Subtitle from "./components/Subtitle";
-import Banner from "./components/Banner";
-import ThirdPartyLogin from "./components/ThirdPartyLogin";
-import Divider from "./components/Divider";
-import ErrorMessage from "./components/ErrorMessage";
+import { Sound, Google } from 'iconsax-react'
+import Select, { StylesConfig } from 'react-select'
+import makeAnimated from 'react-select/animated'
+import { cityOptions } from '@/models/common/mock-data/cities'
+import { cookie } from '@/utils/cookie/cookie'
+import { registerSchema } from '@/models/register/schema/register'
+import Title from './components/Title'
+import Subtitle from './components/Subtitle'
+import Banner from './components/Banner'
+import ThirdPartyLogin from './components/ThirdPartyLogin'
+import Divider from './components/Divider'
+import ErrorMessage from './components/ErrorMessage'
 
-const animatedComponents = makeAnimated();
+const animatedComponents = makeAnimated()
 
 interface RegisterForm {
-  email: string;
-  username: string;
-  password: string;
+  email: string
+  username: string
+  password: string
 }
 
 const RegisterPage = () => {
-  const router = useRouter();
-  const [cities, setCities] = useState([]);
+  const router = useRouter()
+  const [cities, setCities] = useState([])
 
   const form = useForm<RegisterForm>({
     defaultValues: {
-      email: "",
-      username: "",
-      password: "",
+      email: '',
+      username: '',
+      password: '',
     },
     resolver: yupResolver(registerSchema),
-    mode: 'all'
-  });
+    mode: 'all',
+  })
 
-  const { register, handleSubmit, formState } = form;
-  const { errors } = formState;
+  const { register, handleSubmit, formState } = form
+  const { errors } = formState
 
   const onSubmit = (data: RegisterForm) => {
-    cookie.set("user", {
+    cookie.set('user', {
       email: data.email,
       username: data.username,
       cities: cities,
-    });
-    router.push("/onboard");
-  };
+    })
+    router.push('/onboard')
+  }
 
   return (
-    <div className="w-screen h-screen bg-sky-400">
+    <div className="w-screen h-screen bg-primary-400">
       <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
         <div className="w-full md:width-2/5 p-4">
           <Title />
@@ -71,7 +71,7 @@ const RegisterPage = () => {
                 alt=""
                 placeholder="Ex: johndoe@gmail.com"
                 className="outline-none w-full text-sm rounded border-gray-400 border-[1px] py-2 px-3"
-                {...register("email")}
+                {...register('email')}
               />
               {errors.email && (
                 <ErrorMessage>{errors?.email?.message}</ErrorMessage>
@@ -84,7 +84,7 @@ const RegisterPage = () => {
                 alt=""
                 placeholder="Ex: John Doe"
                 className="outline-none w-full text-sm rounded border-gray-400 border-[1px] py-2 px-3"
-                {...register("username")}
+                {...register('username')}
               />
               {errors.username && (
                 <ErrorMessage>{errors?.username?.message}</ErrorMessage>
@@ -97,7 +97,7 @@ const RegisterPage = () => {
                 alt=""
                 placeholder="Your password"
                 className="outline-none w-full text-sm rounded border-gray-400 border-[1px] py-2 px-3"
-                {...register("password")}
+                {...register('password')}
               />
               {errors.password && (
                 <ErrorMessage>{errors?.password?.message}</ErrorMessage>
@@ -114,12 +114,17 @@ const RegisterPage = () => {
                 options={cityOptions}
                 value={cities}
                 onChange={(e: any) => {
-                  setCities(e);
+                  setCities(e)
                 }}
               />
             </div>
             <Button
-              disabled={!!errors.email || !!errors.password || !!errors.username || cities.length === 0}
+              disabled={
+                !!errors.email ||
+                !!errors.password ||
+                !!errors.username ||
+                cities.length === 0
+              }
               size="sm"
               round="md"
               variant="primary"
@@ -142,8 +147,8 @@ const RegisterPage = () => {
             text="Sign in with SoundCloud"
           />
           <p className="text-xs mt-6 text-center">
-            Already have account?{" "}
-            <Link href="/login" className="text-sky-500">
+            Already have account?{' '}
+            <Link href="/login" className="text-primary-500">
               Sign in here
             </Link>
           </p>
@@ -151,7 +156,7 @@ const RegisterPage = () => {
         <Banner />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterPage;
+export default RegisterPage

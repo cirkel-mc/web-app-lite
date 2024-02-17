@@ -1,6 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import LoginImage from "@/assets/login image.png";
+import React from 'react'
+import Image from 'next/image'
+import LoginImage from '@/views/common/assets/login image.png'
 
 const Banner = () => {
   return (
@@ -12,7 +12,7 @@ const Banner = () => {
         className="rounded-r-lg object-cover"
       />
     </div>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner
