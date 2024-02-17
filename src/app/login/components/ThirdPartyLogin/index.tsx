@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 
-import type { ReactNode } from 'react';
+import type { ReactNode } from 'react'
 
 interface ThirdPartyLoginProps {
-  href: string;
-  icon: ReactNode;
-  text: string;
+  href: string
+  icon: ReactNode
+  text: string
 }
 
 const ThirdPartyLogin = ({ href, icon, text }: ThirdPartyLoginProps) => {

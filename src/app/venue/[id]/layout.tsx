@@ -1,10 +1,10 @@
-import '@/styles/normalize.css'
-import '@/styles/globals.css'
+import '@/views/common/styles/normalize.css'
+import '@/views/common/styles/globals.css'
 
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import { FC, ReactNode, Fragment } from 'react'
-import Footer from '@/components/Footer'
+import Footer from '@/views/common/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +20,7 @@ export const metadata: Metadata = {
 const VenueDetailLayout: FC<VenueDetailLayoutProps> = (props) => {
   const { children } = props
 
-  return (
-    <Fragment >
-      {children}
-    </Fragment>
-  )
+  return <Fragment>{children}</Fragment>
 }
 
-export default VenueDetailLayout 
+export default VenueDetailLayout

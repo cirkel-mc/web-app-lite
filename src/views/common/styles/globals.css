@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 500px;
+  display: inline-block;
+
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholderShimmer;
+  animation-timing-function: linear;
+}
+
+#home-filter-calendar .MuiFormControl-root.MuiTextField-root {
+  display: none;
+}
+
+.carousel .control-dots .dot {
+  width: 12px !important;
+  height: 12px !important;
+  box-shadow: unset !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+}
+
+.carousel .control-dots .dot.selected {
+  transition: width 0.25s ease-in-out;
+  width: 1.75rem !important;
+  border-radius: 9999px;
+  background-color: #9a01bf !important;
+}

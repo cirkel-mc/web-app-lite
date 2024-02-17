@@ -1,21 +1,29 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 interface FormGroupProps {
-  label: string;
-  type: string; 
-  alt: string; 
-  placeholder: string; 
-  value?: string;
-  onChange?: (e: any) => void;
+  label: string
+  type: string
+  alt: string
+  placeholder: string
+  value?: string
+  onChange?: (e: any) => void
 }
 
 const FormGroup = (props: FormGroupProps) => {
-  const { label, type = 'text', alt, placeholder, value, onChange, ...rest } = props 
-  const [_value, setValue] = useState(value);
+  const {
+    label,
+    type = 'text',
+    alt,
+    placeholder,
+    value,
+    onChange,
+    ...rest
+  } = props
+  const [_value, setValue] = useState(value)
 
   const handleChange = (e: any) => {
     setValue(value)
-    // onChange(e); 
+    // onChange(e);
   }
 
   return (

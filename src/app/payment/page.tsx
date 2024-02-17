@@ -8,7 +8,7 @@ import PayCTA from './components/PayCTA'
 
 const Payment = () => {
   return (
-    <div className='px-4'>
+    <div className="px-4">
       <Header />
       <Description />
       <PaymentMethod />

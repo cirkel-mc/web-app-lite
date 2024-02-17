@@ -1,6 +1,6 @@
 import React from 'react'
-import Image from "next/image";
-import LoginImage from "@/assets/login image.png";
+import Image from 'next/image'
+import LoginImage from '@/views/common/assets/login image.png'
 
 const Banner = () => {
   return (

@@ -1,12 +1,14 @@
-import '@/styles/normalize.css'
-import '@/styles/globals.css'
+'use client'
+
+import '@/views/common/styles/normalize.css'
+import '@/views/common/styles/globals.css'
 
 import type { FC, ReactNode } from 'react'
-import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const sfPro = localFont({
-   display: 'swap',
+  display: 'swap',
   src: [
     {
       path: './fonts/SF-Pro/SF-Pro-Text-Light.otf',
@@ -71,24 +73,19 @@ const sfPro = localFont({
   ],
 })
 
-export const metadata: Metadata = {
-  title: 'Cirkel',
-  description: 'Play to beyond',
-}
-
 interface RootLayoutProps {
   children: ReactNode
 }
+
+const queryClient = new QueryClient()
 
 const RootLayout: FC<RootLayoutProps> = (props) => {
   const { children } = props
   return (
     <html lang="en">
-      <body className={sfPro.className}>
-        {/* <main className='mr-auto ml-auto max-w-[500px] md:max-w-[768px] lg:max-w-[1024px] 2xl:max-w-[1440px]'> */}
-          {children}
-        {/* </main> */}
-      </body>
+      <QueryClientProvider client={queryClient}>
+        <body className={sfPro.className}>{children}</body>
+      </QueryClientProvider>
     </html>
   )
 }

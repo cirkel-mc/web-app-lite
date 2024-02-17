@@ -1,11 +1,18 @@
 'use client'
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import { ArrowLeft, Edit } from "iconsax-react";
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { ArrowLeft, Edit } from 'iconsax-react'
+import { useAuth } from '@/domains/common/hooks/auth/use-auth'
 
 const Profile = () => {
   const router = useRouter()
+
+  const { user } = useAuth()
+
+  useEffect(() => {
+    if (!user) router.push('/login')
+  }, [])
 
   return (
     <div className="relative h-screen">
@@ -49,9 +56,11 @@ const Profile = () => {
           <p>*******</p>
         </div>
       </div>
-      <p className="absolute left-1/2 bottom-4 -translate-x-1/2 text-gray-400">Cirkel &copy;2023</p>
+      <p className="absolute left-1/2 bottom-4 -translate-x-1/2 text-gray-400">
+        Cirkel &copy;2023
+      </p>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

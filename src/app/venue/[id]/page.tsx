@@ -1,22 +1,24 @@
-import React, { Fragment } from 'react'
+'use client'
 
-import { StyledEngineProvider } from '@mui/material/styles';
+import React, { Fragment, Suspense } from 'react'
+
+import { StyledEngineProvider } from '@mui/material/styles'
 
 import Title from './components/Title'
 import Media from './components/Media'
 import DateRange from './components/DateRange'
 import AvailableTime from './components/AvailableTime'
-import Description from './components/Description/Description';
-import PurchaseBox from './components/PurchaseBox';
-import Loading from './loading';
+import Description from './components/Description/Description'
+import PurchaseBox from './components/PurchaseBox'
+// import Loading from './loading';
 
 const VenueDetail = () => {
   return (
     <StyledEngineProvider injectFirst>
       <Fragment>
         <Media />
-        <div className='px-4 pb-[80px]'>
-          <Title title='Studio Rawamangun' />
+        <div className="px-4 pb-[80px]">
+          <Title title="Studio Rawamangun" />
           <DateRange />
           <AvailableTime />
           <Description />

@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './ui/**/*.{js,ts,jsx,tsx,mdx}'
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './ui/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
@@ -20,10 +17,9 @@ module.exports = {
           30: '#00ddc2',
           40: '#02b19c',
           50: '#016f61',
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
 }
-
