@@ -12,7 +12,7 @@ interface MenuProps {
 
 const Menu = (props: MenuProps) => {
   const { show, onClose } = props
-  const { isAuth } = useAuth()
+  const { user } = useAuth()
 
   return (
     <BottomSheet title="My Menu" open={show} onClose={onClose}>
@@ -49,7 +49,7 @@ const Menu = (props: MenuProps) => {
           <Note size="24" color="#0A0A0A" />
           Blog
         </Link>
-        {isAuth ? (
+        {user ? (
           <Link
             key={2}
             className="text-black hover:opacity-60 flex gap-2 items-center"

@@ -7,7 +7,7 @@ import Cart from '../TopNavigation/Cart'
 import { User } from 'iconsax-react'
 
 const NavigationDesktop = () => {
-  const { isAuth } = useAuth()
+  const { user } = useAuth()
   return (
     <div className="fixed left-0 top-0 px-7 py-4 w-full bg-primary-40 z-50 ">
       <div className="flex items-center justify-between mx-auto lg:max-w-[1024px] 2xl:max-w-[1440px]">
@@ -23,7 +23,7 @@ const NavigationDesktop = () => {
             Learn
           </a>
         </div>
-        {isAuth ? (
+        {user ? (
           <div className="flex justify-center items-center gap-4">
             <div className="w-8 h-8 flex justify-center items-center bg-slate-300 rounded-full cursor-pointer">
               <User color="white" variant="Bold" />
