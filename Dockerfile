@@ -1,21 +1,34 @@
-FROM node:20.11.1-alpine3.19 AS deps
+# stage 1
+# install and build dependencies on this projects
+FROM node:20.11.1-alpine3.19 AS builder
 
 WORKDIR /app
 
-COPY package.json ./ 
+# copy depedencies to builder
+COPY package.json yarn.lock ./ 
 
-RUN npm install
+# install dependencies
+RUN yarn install
 
-COPY node_modules ./node_modules
-
+# copy any files from this project before build the application
 COPY . .
 
-RUN npm run build
+# build applications
+RUN yarn build
 
-RUN npm install -g serve
+# stage 2
+# runner for running the application
+FROM node:20.11.1-alpine3.19
 
-COPY /app/dist ./
+WORKDIR /app
 
+# copy from builder
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+
+# expose port applications
 EXPOSE 3000
 
-ENTRYPOINT ["serve","-p","3000","-s","."]
+CMD ["yarn", "start"]
