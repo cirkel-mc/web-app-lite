@@ -87,9 +87,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          build-args: |
-            user=${{ secrets.GH_USER }}
-            token=${{ secrets.GH_PERSONAL_TOKEN }}
           push: true
           tags: |
             ${{ env.CR_URL }}/${{ needs.setup-job-env.outputs.service_name }}:${{ env.IMAGE_TAG }}
