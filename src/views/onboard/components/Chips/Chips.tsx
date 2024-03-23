@@ -1,5 +1,5 @@
 import React from 'react'
-import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 interface ChipsProps {
   classname: string
@@ -7,10 +7,10 @@ interface ChipsProps {
   onClick: () => void
 }
 
-const Chips = ({ classname, onClick, dataValue }: ChipsProps) => {
+function Chips({ classname, onClick, dataValue }: ChipsProps) {
   return (
     <div
-      className={clsx(
+      className={twMerge(
         'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
         classname,
       )}

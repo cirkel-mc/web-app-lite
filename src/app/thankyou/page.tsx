@@ -1,10 +1,11 @@
 'use client'
+
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-import IconSuccess from '@/views/common/components/Icons/CheckFill'
+import IconSuccess from '@/domains/common/components/Icons/CheckFill'
 
-const Thankyou = () => {
+function Thankyou() {
   const router = useRouter()
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] shadow-2xl px-6 box-border">

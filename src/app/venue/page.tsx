@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Venue = () => {
+function Venue() {
   return <div>Page Venue</div>
 }
 

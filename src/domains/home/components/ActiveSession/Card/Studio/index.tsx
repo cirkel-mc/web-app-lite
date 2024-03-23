@@ -1,11 +1,11 @@
 import React from 'react'
-import { LocationFill } from '@/views/common/components/Icons'
+import { LocationFill } from '@/domains/common/components/Icons'
 
 interface StudioProps {
   studio: string
 }
 
-const Studio = ({ studio }: StudioProps) => {
+function Studio({ studio }: StudioProps) {
   return (
     <div className="flex gap-1 justify-between items-center">
       <LocationFill />

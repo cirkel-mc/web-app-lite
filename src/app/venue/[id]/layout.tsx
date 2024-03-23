@@ -4,7 +4,7 @@ import '@/views/common/styles/globals.css'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import { FC, ReactNode, Fragment } from 'react'
-import Footer from '@/views/common/components/Footer'
+import Footer from '@/domains/common/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const VenueDetailLayout: FC<VenueDetailLayoutProps> = (props) => {
   const { children } = props
 
-  return <Fragment>{children}</Fragment>
+  return <>{children}</>
 }
 
 export default VenueDetailLayout

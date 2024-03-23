@@ -1,11 +1,11 @@
 import React from 'react'
-import { PersonFill } from '@/views/common/components/Icons';
+import { PersonFill } from '@/domains/common/components/Icons'
 
 interface MembersProps {
-  members: string;
+  members: string
 }
 
-const Members = ({ members }:MembersProps) => {
+function Members({ members }: MembersProps) {
   return (
     <div className="flex gap-1 justify-between items-center">
       <PersonFill />

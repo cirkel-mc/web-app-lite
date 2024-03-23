@@ -1,18 +1,18 @@
 import React from 'react'
 
-import Radio from '@mui/material/Radio'
-import RadioGroup from '@mui/material/RadioGroup'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FormControl from '@mui/material/FormControl'
+// import Radio from '@mui/material/Radio'
+// import RadioGroup from '@mui/material/RadioGroup'
+// import FormControlLabel from '@mui/material/FormControlLabel'
+// import FormControl from '@mui/material/FormControl'
 
-import IconGopay from '@/views/common/components/Icons/Gopay'
-import IconOvo from '@/views/common/components/Icons/Ovo'
-import IconDana from '@/views/common/components/Icons/Dana'
+import IconGopay from '@/domains/common/components/Icons/Gopay'
+import IconOvo from '@/domains/common/components/Icons/Ovo'
+import IconDana from '@/domains/common/components/Icons/Dana'
 
-const PaymentMethod = () => {
+function PaymentMethod() {
   return (
     <div className="mt-8 pr-4">
-      <FormControl sx={{ width: '100%' }}>
+      {/* <FormControl sx={{ width: '100%' }}>
         <p className="mb-2">Select Payment Method: </p>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
@@ -57,7 +57,7 @@ const PaymentMethod = () => {
             label={<IconDana className="w-[100px] h-[50px]" />}
           />
         </RadioGroup>
-      </FormControl>
+      </FormControl> */}
     </div>
   )
 }

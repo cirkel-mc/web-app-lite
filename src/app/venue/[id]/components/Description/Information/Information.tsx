@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Information = () => {
+function Information() {
   return (
     <div>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.

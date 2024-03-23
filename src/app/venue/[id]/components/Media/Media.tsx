@@ -8,11 +8,11 @@ import { useScreenSize } from '@/domains/common/hooks/screen/use-screen-size'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 
-import IconBack from '@/views/common/components/Icons/Back'
-import IconShare from '@/views/common/components/Icons/Share'
+import IconBack from '@/domains/common/components/Icons/Back'
+import IconShare from '@/domains/common/components/Icons/Share'
 import Indicator from './Indicator'
 
-const Media = () => {
+function Media() {
   const router = useRouter()
   const [index, setIndex] = useState(0)
 
@@ -24,7 +24,7 @@ const Media = () => {
       />
       <div className="relative w-full h-[240px] overflow-auto">
         <Carousel
-          className={`h-full`}
+          className="h-full"
           infiniteLoop
           autoPlay
           showArrows={false}

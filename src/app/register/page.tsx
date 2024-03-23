@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -10,20 +9,16 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import Button from '@/views/common/ui/components/Button'
 
-import { Sound, Google } from 'iconsax-react'
-import Select, { StylesConfig } from 'react-select'
-import makeAnimated from 'react-select/animated'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { cityOptions } from '@/models/common/mock-data/cities'
-import { cookie } from '@/utils/cookie/cookie'
+import { cookie } from '@/domains/common/utils/cookie/cookie'
 import { registerSchema } from '@/models/register/schema/register'
-import Title from './components/Title'
-import Subtitle from './components/Subtitle'
-import Banner from './components/Banner'
-import ThirdPartyLogin from './components/ThirdPartyLogin'
-import Divider from './components/Divider'
-import ErrorMessage from './components/ErrorMessage'
-
-const animatedComponents = makeAnimated()
+import Title from '../../domains/register/components/Title'
+import Subtitle from '../../domains/register/components/Subtitle'
+import Banner from '../../domains/register/components/Banner'
+import ThirdPartyLogin from '../../domains/register/components/ThirdPartyLogin'
+import Divider from '../../domains/register/components/Divider'
+import ErrorMessage from '../../domains/register/components/ErrorMessage'
 
 interface RegisterForm {
   email: string
@@ -31,7 +26,7 @@ interface RegisterForm {
   password: string
 }
 
-const RegisterPage = () => {
+function RegisterPage() {
   const router = useRouter()
   const [cities, setCities] = useState([])
 
@@ -52,15 +47,15 @@ const RegisterPage = () => {
     cookie.set('user', {
       email: data.email,
       username: data.username,
-      cities: cities,
+      cities,
     })
     router.push('/onboard')
   }
 
   return (
-    <div className="w-screen h-screen bg-primary-400">
-      <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
-        <div className="w-full md:width-2/5 p-4">
+    <div className="w-screen h-screen bg-primary-40">
+      <div className="flex-col w-full max-w-[500px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
+        <div className="w-full p-4">
           <Title />
           <Subtitle />
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,7 +100,7 @@ const RegisterPage = () => {
             </div>
             <div className="w-full">
               <p className="text-sm mb-1">City:</p>
-              <Select
+              {/* <Select
                 className="outline-none"
                 closeMenuOnSelect={false}
                 components={animatedComponents}
@@ -116,7 +111,7 @@ const RegisterPage = () => {
                 onChange={(e: any) => {
                   setCities(e)
                 }}
-              />
+              /> */}
             </div>
             <Button
               disabled={
@@ -138,14 +133,14 @@ const RegisterPage = () => {
           <Divider />
           <ThirdPartyLogin
             href=""
-            icon={<Google />}
+            icon={<FontAwesomeIcon icon="google" />}
             text="Sign in with Google"
           />
-          <ThirdPartyLogin
+          {/* <ThirdPartyLogin
             href=""
             icon={<Sound />}
             text="Sign in with SoundCloud"
-          />
+          /> */}
           <p className="text-xs mt-6 text-center">
             Already have account?{' '}
             <Link href="/login" className="text-primary-500">

@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useState, useMemo } from 'react'
-import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 import Information from './Information'
 import Facility from './Facility'
 import Terms from './Terms'
 
-const Description = () => {
+function Description() {
   const [current, setCurrent] = useState('info')
 
   const renderDesc = useMemo(() => {
@@ -27,7 +27,7 @@ const Description = () => {
         <div className="cursor-pointer" onClick={() => setCurrent('info')}>
           <div>Description</div>
           <div
-            className={clsx(
+            className={twMerge(
               'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
               current === 'info' ? 'w-full' : 'w-0',
             )}
@@ -36,7 +36,7 @@ const Description = () => {
         <div className="cursor-pointer" onClick={() => setCurrent('get')}>
           <div>Facility</div>
           <div
-            className={clsx(
+            className={twMerge(
               'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
               current === 'get' ? 'w-full' : 'w-0',
             )}
@@ -45,7 +45,7 @@ const Description = () => {
         <div className="cursor-pointer" onClick={() => setCurrent('terms')}>
           <div>Terms</div>
           <div
-            className={clsx(
+            className={twMerge(
               'transition-all duration-300 ease-out mt-2 bg-slate-200 rounded-2xl h-[3px] opacity-100',
               current === 'terms' ? 'w-full' : 'w-0',
             )}
