@@ -8,7 +8,7 @@ export default function useNavigation() {
   const path = usePathname()
   const isHome = path === '/'
   const isExclude = EXCLUDE_TOPNAV_ROUTES.some((item) => item === path)
-  const isExcludeBottom = EXCLUDE_BOTTOMNAV_ROUTES.some((item) => item === path)
+  const isExcludeBottom = EXCLUDE_BOTTOMNAV_ROUTES.some((item) => item === path || path.startsWith(item))
 
   const generateTitle = () => {
     const paths = path.split('/').slice(1)
