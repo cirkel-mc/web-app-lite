@@ -2,7 +2,7 @@
 
 import Search from '@/domains/common/components/Search/Search'
 import MusicianCard from '@/domains/create-session/components/MusicianCard'
-import { MOCK_MUSICIANS } from '@/app/create-session/mock-data-musicians'
+import { MOCK_MUSICIANS } from '../../constants/mock-data-musicians'
 import { MusicianAttribute } from '@/models/user/types/musician-types'
 
 interface Deps {
