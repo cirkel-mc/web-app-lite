@@ -1,77 +1,15 @@
 'use client'
 
-import '@/views/common/styles/normalize.css'
-import '@/views/common/styles/globals.css'
-
 import type { FC, ReactNode } from 'react'
-import localFont from 'next/font/local'
+import { sfPro } from '@/views/common/assets/fonts/fonts'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
-const sfPro = localFont({
-  display: 'swap',
-  src: [
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Light.otf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-LightItalic.otf',
-      weight: '300',
-      style: 'italic',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-RegularItalic.otf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Medium.otf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-MediumItalic.otf',
-      weight: '500',
-      style: 'italic',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Semibold.otf',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-SemiboldItalic.otf',
-      weight: '600',
-      style: 'italic',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Bold.otf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-BoldItalic.otf',
-      weight: '700',
-      style: 'italic',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-Heavy.otf',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro/SF-Pro-Text-HeavyItalic.otf',
-      weight: '800',
-      style: 'italic',
-    },
-  ],
-})
+import Navigation from '@/domains/common/components/Navigation'
+import BottomNavigation from '@/domains/common/components/Navigation/BottomNavigation'
+// import '@/views/common/styles/normalize.css'
+import '@/views/common/styles/globals.css'
+import useNavigation from '@/domains/common/hooks/navigation/useNavigation'
+import { twMerge } from 'tailwind-merge'
+import MetaTags from '@/domains/home/components/MetaTag'
 
 interface RootLayoutProps {
   children: ReactNode
@@ -81,10 +19,23 @@ const queryClient = new QueryClient()
 
 const RootLayout: FC<RootLayoutProps> = (props) => {
   const { children } = props
+  const { isHome, isExclude, isExcludeBottom, generateTitle } = useNavigation()
+
   return (
     <html lang="en">
+      <head>
+        <MetaTags />
+      </head>
       <QueryClientProvider client={queryClient}>
-        <body className={sfPro.className}>{children}</body>
+        <body className={twMerge(sfPro.className)}>
+          <Navigation
+            isHome={isHome}
+            isExclude={isExclude}
+            title={!isHome ? generateTitle() : ''}
+          />
+          {children}
+          <BottomNavigation isExclude={isExcludeBottom} />
+        </body>
       </QueryClientProvider>
     </html>
   )

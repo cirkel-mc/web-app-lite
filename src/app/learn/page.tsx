@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Learn = () => {
+function Learn() {
   return <div>Page Learn</div>
 }
 

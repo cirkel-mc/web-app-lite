@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 import { useRouter } from 'next/navigation'
 
 import Button from '@/views/common/ui/components/Button'
 import BandMemberImage from '@/views/common/assets/Pro.png'
 import JamSessionImage from '@/views/common/assets/Casual.png'
 
-const Onboarding = () => {
+function Onboarding() {
   const router = useRouter()
   const [preference, setPreference] = useState<string | undefined>('casual')
   const [step, setStep] = useState(1)
@@ -18,22 +18,22 @@ const Onboarding = () => {
   const [genre, setGenre] = useState<string | undefined>('')
 
   const handlePreference = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = e.currentTarget.dataset.value
+    const { value } = e.currentTarget.dataset
     setPreference(value)
   }
 
   const handleInstrument = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = e.currentTarget.dataset.value
+    const { value } = e.currentTarget.dataset
     setInstrument(value)
   }
 
   const handleGenre = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = e.currentTarget.dataset.value
+    const { value } = e.currentTarget.dataset
     setGenre(value)
   }
 
   const handleLevel = (e: React.MouseEvent<HTMLDivElement>) => {
-    const value = e.currentTarget.dataset.value
+    const { value } = e.currentTarget.dataset
     setLevel(value)
   }
 
@@ -53,10 +53,10 @@ const Onboarding = () => {
   }
 
   return (
-    <div className="w-screen h-screen bg-primary-500">
-      <div className="pt-6 px-10 pb-10 fixed w-full h-full md:h-[unset]  md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 shadow-1 rounded-lg bg-white md:max-w-[800px] overflow-auto md:min-w-[700px]">
+    <div className="w-screen h-screen">
+      <div className="pt-6 px-10 pb-10 w-full h-full max-w-[500px] mx-auto  shadow-1 rounded-lg bg-white overflow-auto  z-10">
         {step === 1 ? (
-          <div className="mb-6">
+          <div className="mb-6 mt-[64px]">
             <p className="text-lg leading-6 font-semibold text-center sm:text-2xl mb-1">
               What are you looking for ?
             </p>
@@ -76,9 +76,9 @@ const Onboarding = () => {
         )}
 
         {step === 1 ? (
-          <div className="flex flex-col sm:flex-row gap-4 w-full overflow-auto mt-10">
+          <div className="flex flex-col sm:flex-row gap-4 w-full overflow-auto">
             <div
-              className={clsx(
+              className={twMerge(
                 'p-4 w-full sm:w-1/2 rounded-2xl border-[2px]',
                 preference === 'casual'
                   ? 'border-primary-40'
@@ -95,7 +95,7 @@ const Onboarding = () => {
               </p>
             </div>
             <div
-              className={clsx(
+              className={twMerge(
                 'p-4 w-full sm:w-1/2 rounded-2xl border-[2px]',
                 preference === 'profesional'
                   ? 'border-primary-40'
@@ -117,7 +117,7 @@ const Onboarding = () => {
             <p className="mb-2">Choose your instrument</p>
             <div className="flex flex-wrap gap-3">
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'guitar'
                     ? 'bg-primary-40  border-white text-white'
@@ -129,7 +129,7 @@ const Onboarding = () => {
                 Guitar
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'piano'
                     ? 'bg-primary-40  border-white text-white'
@@ -141,7 +141,7 @@ const Onboarding = () => {
                 Piano / Keyboard
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'drum'
                     ? 'bg-primary-40  border-white text-white'
@@ -153,7 +153,7 @@ const Onboarding = () => {
                 Drum
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'bass'
                     ? 'bg-primary-40  border-white text-white'
@@ -165,7 +165,7 @@ const Onboarding = () => {
                 Bass
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'vocal'
                     ? 'bg-primary-40  border-white text-white'
@@ -177,7 +177,7 @@ const Onboarding = () => {
                 Vocal
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'saxophone'
                     ? 'bg-primary-40  border-white text-white'
@@ -190,7 +190,7 @@ const Onboarding = () => {
               </div>
 
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'trumpet'
                     ? 'bg-primary-40  border-white text-white'
@@ -202,7 +202,7 @@ const Onboarding = () => {
                 Trumpet
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'violin'
                     ? 'bg-primary-40  border-white text-white'
@@ -214,7 +214,7 @@ const Onboarding = () => {
                 Violin
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'flute'
                     ? 'bg-primary-40  border-white text-white'
@@ -226,7 +226,7 @@ const Onboarding = () => {
                 Flute
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'percussion'
                     ? 'bg-primary-40  border-white text-white'
@@ -238,7 +238,7 @@ const Onboarding = () => {
                 Percussion
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   instrument === 'harmonica'
                     ? 'bg-primary-40  border-white text-white'
@@ -254,7 +254,7 @@ const Onboarding = () => {
             <p className="mb-2 mt-6">Choose your skill</p>
             <div className="flex flex-wrap gap-3">
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   level === 'beginner'
                     ? 'bg-primary-40  border-white text-white'
@@ -266,7 +266,7 @@ const Onboarding = () => {
                 Beginner
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   level === 'intermediete'
                     ? 'bg-primary-40  border-white text-white'
@@ -278,7 +278,7 @@ const Onboarding = () => {
                 Intermediete
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   level === 'pro'
                     ? 'bg-primary-40  border-white text-white'
@@ -294,7 +294,7 @@ const Onboarding = () => {
             <p className="mb-2 mt-6">Choose your genre</p>
             <div className="flex flex-wrap gap-3">
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'jazz'
                     ? 'bg-primary-40  border-white text-white'
@@ -306,7 +306,7 @@ const Onboarding = () => {
                 Jazz
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'pop'
                     ? 'bg-primary-40  border-white text-white'
@@ -318,7 +318,7 @@ const Onboarding = () => {
                 Pop
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'rock'
                     ? 'bg-primary-40  border-white text-white'
@@ -330,7 +330,7 @@ const Onboarding = () => {
                 Rock
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'blues'
                     ? 'bg-primary-40  border-white text-white'
@@ -342,7 +342,7 @@ const Onboarding = () => {
                 Blues
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'dangdut'
                     ? 'bg-primary-40  border-white text-white'
@@ -354,7 +354,7 @@ const Onboarding = () => {
                 Dangdut
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'classic'
                     ? 'bg-primary-40  border-white text-white'
@@ -366,7 +366,7 @@ const Onboarding = () => {
                 Classic
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'reggae'
                     ? 'bg-primary-40  border-white text-white'
@@ -378,7 +378,7 @@ const Onboarding = () => {
                 Reggae
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'funk'
                     ? 'bg-primary-40  border-white text-white'
@@ -390,7 +390,7 @@ const Onboarding = () => {
                 Funk
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'punk'
                     ? 'bg-primary-40  border-white text-white'
@@ -402,7 +402,7 @@ const Onboarding = () => {
                 Punk
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'hiphop'
                     ? 'bg-primary-40  border-white text-white'
@@ -414,7 +414,7 @@ const Onboarding = () => {
                 Hip hop
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'metal'
                     ? 'bg-primary-40  border-white text-white'
@@ -426,7 +426,7 @@ const Onboarding = () => {
                 Metal
               </div>
               <div
-                className={clsx(
+                className={twMerge(
                   'px-4 py-2  border-solid border-[1px] rounded-lg cursor-pointer',
                   genre === 'electronic'
                     ? 'bg-primary-40 border-white text-white'
@@ -453,7 +453,7 @@ const Onboarding = () => {
           </Button>
           <div className="w-full h-4 bg-gray-400 mx-4 rounded-2xl">
             <div
-              className={clsx(
+              className={twMerge(
                 'w-0 h-4 rounded-2xl bg-primary-40 duration-300 ease-in-out',
                 step === 2 ? 'w-full' : 'w-1/2',
               )}

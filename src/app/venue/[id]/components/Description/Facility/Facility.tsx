@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Facility = () => {
+function Facility() {
   return <div>User akan mendapat satu set full alat band + stick drum</div>
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Description = () => {
+function Description() {
   return (
     <div className="flex justify-between mt-4">
       <div className="relative w-[120px] h-[120px] mr-4">

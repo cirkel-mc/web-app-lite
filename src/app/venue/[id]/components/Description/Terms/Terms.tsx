@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Terms = () => {
+function Terms() {
   return <div>Terms Condition Studio Rawamangun</div>
 }
 

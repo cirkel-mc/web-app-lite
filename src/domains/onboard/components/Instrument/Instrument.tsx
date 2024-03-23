@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Instrument = () => {
+function Instrument() {
   return <div>Instrument</div>
 }
 

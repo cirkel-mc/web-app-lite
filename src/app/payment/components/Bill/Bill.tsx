@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Bill = () => {
+function Bill() {
   return (
     <div className="mt-6">
       <div className="flex w-full justify-between mb-1">

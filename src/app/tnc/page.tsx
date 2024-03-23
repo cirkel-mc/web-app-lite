@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tnc = () => {
+function Tnc() {
   return <div>Page TnC</div>
 }
 

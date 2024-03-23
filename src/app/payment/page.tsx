@@ -6,7 +6,7 @@ import Description from './components/Description'
 import PaymentMethod from './components/PaymentMethod/PaymentMethod'
 import PayCTA from './components/PayCTA'
 
-const Payment = () => {
+function Payment() {
   return (
     <div className="px-4">
       <Header />

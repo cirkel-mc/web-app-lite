@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Acitivities = () => {
+function Acitivities() {
   return <div>Page Activities</div>
 }
 

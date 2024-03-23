@@ -1,9 +1,10 @@
 'use client'
+
 import React, { useState } from 'react'
-import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 import Date from './Date'
 
-const DateRange = () => {
+function DateRange() {
   const [selected, setSelected] = useState('')
 
   return (

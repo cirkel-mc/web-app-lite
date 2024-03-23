@@ -1,13 +1,11 @@
 import React from 'react'
 
 interface TimeProps {
-  time: string;
+  time: string
 }
 
-const Time = ({time}: TimeProps) => {
-  return (
-    <span>{time}</span>
-  )
+function Time({ time }: TimeProps) {
+  return <span>{time}</span>
 }
 
 export default Time

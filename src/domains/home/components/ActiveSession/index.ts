@@ -1,1 +1,1 @@
-export { default } from './ActiveSession';
+export { default } from './ActiveSession'

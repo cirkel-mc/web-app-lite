@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import { Music, Time, LocationFill } from '@/views/common/components/Icons'
-import clsx from 'clsx'
+import React from 'react'
+import { twMerge } from 'tailwind-merge'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faClock,
+  faMusic,
+  faLocationDot,
+  faLocation,
+} from '@fortawesome/free-solid-svg-icons'
 
 interface FilterProps {
-  activeKey: string;
-  setActiveKey: any;
+  activeKey: string
+  setActiveKey: any
 }
 
-const Filter = ({ activeKey, setActiveKey }: FilterProps) => {
+function Filter({ activeKey, setActiveKey }: FilterProps) {
   return (
     <div className="flex gap-2">
       <div
-        className={clsx(
+        className={twMerge(
           'flex gap-2 items-center rounded-xl p-2 border-2',
           activeKey === 'session'
             ? 'text-primary-30 border-primary-30'
@@ -19,11 +25,11 @@ const Filter = ({ activeKey, setActiveKey }: FilterProps) => {
         )}
         onClick={() => setActiveKey('session')}
       >
-        <Time className="!fill-white" />
+        <FontAwesomeIcon icon={faClock} className="w-4 h-4" />
         <span>Session</span>
       </div>
       <div
-        className={clsx(
+        className={twMerge(
           'flex gap-2 items-center rounded-xl p-2 border-2',
           activeKey === 'musician'
             ? 'text-primary-30 border-primary-30'
@@ -31,11 +37,11 @@ const Filter = ({ activeKey, setActiveKey }: FilterProps) => {
         )}
         onClick={() => setActiveKey('musician')}
       >
-        <Music className="!fill-white" />
+        <FontAwesomeIcon icon={faMusic} className="w-4 h-4" />
         <span>Musician</span>
       </div>
       <div
-        className={clsx(
+        className={twMerge(
           'flex gap-2 items-center rounded-xl p-2 border-2',
           activeKey === 'studio'
             ? 'text-primary-30 border-primary-30'
@@ -43,7 +49,7 @@ const Filter = ({ activeKey, setActiveKey }: FilterProps) => {
         )}
         onClick={() => setActiveKey('studio')}
       >
-        <LocationFill className="!fill-white" />
+        <FontAwesomeIcon icon={faLocationDot} className="w-4 h-4" />
         <span>Session</span>
       </div>
     </div>

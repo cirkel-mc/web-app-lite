@@ -1,4 +1,4 @@
-import { cookie } from '@/utils/cookie/cookie'
+import { cookie } from '@/domains/common/utils/cookie/cookie'
 
 /**
  * Check if the user is authecticated

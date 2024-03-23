@@ -1,8 +1,9 @@
 'use client'
-import React, { useState } from 'react'
-import clsx from 'clsx'
 
-const AvailableTime = () => {
+import React, { useState } from 'react'
+import { twMerge } from 'tailwind-merge'
+
+function AvailableTime() {
   const [selected, setSelected] = useState('')
 
   return (
@@ -10,7 +11,7 @@ const AvailableTime = () => {
       <p className="text-sm">Choose Time</p>
       <div className="flex gap-2 pb-4 items-center justify-between overflow-auto">
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '13.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',
@@ -20,7 +21,7 @@ const AvailableTime = () => {
           13.00
         </div>
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '15.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',
@@ -30,7 +31,7 @@ const AvailableTime = () => {
           15.00
         </div>
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '17.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',
@@ -40,7 +41,7 @@ const AvailableTime = () => {
           17.00
         </div>
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '19.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',
@@ -50,7 +51,7 @@ const AvailableTime = () => {
           19.00
         </div>
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '21.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',
@@ -60,7 +61,7 @@ const AvailableTime = () => {
           21.00
         </div>
         <div
-          className={clsx(
+          className={twMerge(
             'rounded-lg shadow-md px-3 py-1 border-2 border-slate-200 text-base',
             selected === '23.00' &&
               'bg-primary-400 border-primary-300 text-white border-0',

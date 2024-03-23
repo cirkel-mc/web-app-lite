@@ -1,10 +1,11 @@
 'use client'
+
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-import IconBack from '@/views/common/components/Icons/Back'
+import IconBack from '@/domains/common/components/Icons/Back'
 
-const Header = () => {
+function Header() {
   const router = useRouter()
 
   return (

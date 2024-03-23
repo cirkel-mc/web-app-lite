@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -8,23 +8,22 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import Button from '@/views/common/ui/components/Button'
-import { Sound, Google } from 'iconsax-react'
-import FormGroup from './components/FormGroup'
-import Title from './components/Title'
-import Subtitle from './components/Subtitle'
-import Divider from './components/Divider'
-import ThirdPartyLogin from './components/ThirdPartyLogin'
-import Banner from './components/Banner'
-import ErrorMessage from './components/ErrorMessage'
-import { cookie } from '@/utils/cookie/cookie'
+
+import { cookie } from '@/domains/common/utils/cookie/cookie'
 import { loginSchema } from '@/models/login/schema/login'
+import Title from '../../domains/login/components/Title'
+import Subtitle from '../../domains/login/components/Subtitle'
+import Divider from '../../domains/login/components/Divider'
+import ThirdPartyLogin from '../../domains/login/components/ThirdPartyLogin'
+import Banner from '../../domains/login/components/Banner'
+import ErrorMessage from '../../domains/login/components/ErrorMessage'
 
 interface LoginForm {
   email: string
   password: string
 }
 
-const LoginPage = () => {
+function LoginPage() {
   const router = useRouter()
   const form = useForm<LoginForm>({
     defaultValues: {
@@ -45,8 +44,8 @@ const LoginPage = () => {
 
   return (
     <div className="bg-primary-40 w-screen h-screen">
-      <div className="flex-col md:flex md:flex-row w-[80%] max-w-[700px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
-        <div className="w-full md:width-2/5 p-4">
+      <div className="flex-col w-full max-w-[500px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
+        <div className="w-full p-4">
           <Title />
           <Subtitle />
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -90,16 +89,7 @@ const LoginPage = () => {
             </Button>
           </form>
           <Divider />
-          <ThirdPartyLogin
-            href=""
-            icon={<Google />}
-            text="Sign in with Google"
-          />
-          <ThirdPartyLogin
-            href=""
-            icon={<Sound />}
-            text="Sign in with SoundCloud"
-          />
+          <ThirdPartyLogin href="" text="Sign in with Google" />
           <p className="text-xs mt-6 text-center">
             Does not have account?{' '}
             <Link href="/register" className="text-primary-500">

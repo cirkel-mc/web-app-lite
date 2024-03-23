@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ReactNode, ComponentPropsWithoutRef } from 'react'
 
-import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   children: ReactNode | ReactNode[]
@@ -19,7 +19,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   onClick?: () => void
 }
 
-const Button = (props: ButtonProps) => {
+function Button(props: ButtonProps) {
   const {
     children,
     classes,
@@ -52,15 +52,15 @@ const Button = (props: ButtonProps) => {
   const switchVariant = (varBtn: string) => {
     switch (varBtn) {
       case 'primary':
-        return 'bg-primary-40 hover:bg-primary-20'
+        return 'bg-primary-30 hover:bg-primary-20'
       case 'secondary':
-        return 'bg-secondary-50 hover:bg-secondary-40'
+        return 'bg-secondary-40 hover:bg-secondary-30'
       default:
         return ''
     }
   }
 
-  let mergedClass = clsx(
+  const mergedClass = twMerge(
     'text-white font-medium text-base !rounded-lg',
     switchVariant(variant),
     switchSize(size),

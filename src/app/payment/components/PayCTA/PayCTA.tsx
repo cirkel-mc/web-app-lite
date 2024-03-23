@@ -1,8 +1,9 @@
 'use client'
+
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
-const PayCTA = () => {
+function PayCTA() {
   const router = useRouter()
   return (
     <div className="fixed bottom-0 left-0 shadow-2xl w-full px-4 py-4 bg-primary-50">
