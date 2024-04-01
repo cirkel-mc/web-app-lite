@@ -3,12 +3,13 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
-  Home2,
-  Music,
-  User,
-  Plus,
-  Time,
-} from '@/domains/common/components/Icons'
+  faHome,
+  faMusic,
+  faAdd,
+  faClockFour,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { useScreenSize } from '@/domains/common/hooks/screen/use-screen-size'
 import Item from './Item'
@@ -33,33 +34,33 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
     <div className="w-full bg-white fixed bottom-0 left-0 px-2 py-3 shadow-2xl ">
       <div className="max-w-[500px] mx-auto flex justify-around">
         <Item
-          Icon={Home2}
+          Icon={faHome}
           title="Home"
           isActive={activeMenu === 'Home'}
           onClick={() => handleChangeMenu('Home', '/')}
         />
         <Item
-          Icon={Music}
+          Icon={faMusic}
           title="Session"
           isActive={activeMenu === 'Session'}
-          onClick={() => handleChangeMenu('Session', '/session')}
+          onClick={() => handleChangeMenu('Session', '/session-list')}
         />
         <div
           role="button"
           className="flex flex-col justify-center items-center gap-1 bg-primary-40 pt-2 pb-1 px-2 rounded-md"
           onClick={() => router.push('create-session')}
         >
-          <Plus size={16} />
+          <FontAwesomeIcon icon={faAdd} className="w-4 h-4 text-white" />
           <span className="text-[12px] text-white">Create</span>
         </div>
         <Item
-          Icon={Time}
+          Icon={faClockFour}
           title="Order"
           isActive={activeMenu === 'Order'}
           onClick={() => handleChangeMenu('Order', '/orders')}
         />
         <Item
-          Icon={User}
+          Icon={faUser}
           title="Profile"
           isActive={activeMenu === 'Profile'}
           onClick={() => handleChangeMenu('Profile', '/profile')}

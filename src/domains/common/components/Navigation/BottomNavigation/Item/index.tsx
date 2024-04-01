@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { twMerge } from 'tailwind-merge'
 
 interface BottomNavigationItemProps {
   Icon: any
@@ -16,13 +17,19 @@ function BottomNavigationItem(props: BottomNavigationItemProps) {
       className="flex flex-col justify-center items-center gap-1"
       onClick={onClick}
     >
-      <Icon
-        className="duration-400"
-        color="#9a01bf"
-        size={26}
-        variant={isActive ? 'Bold' : 'Outline'}
+      <FontAwesomeIcon
+        icon={Icon}
+        className={twMerge(
+          'duration-400',
+          isActive ? 'text-primary-40' : 'text-neutral-500',
+        )}
       />
-      <span className="text-[12px] text-neutral-500 inline-block mt-1">
+      <span
+        className={twMerge(
+          'text-[12px] inline-block mt-1',
+          isActive ? 'text-primary-40' : 'text-neutral-500',
+        )}
+      >
         {title}
       </span>
     </div>

@@ -44,7 +44,7 @@ function LoginPage() {
 
   return (
     <div className="bg-primary-40 w-screen h-screen">
-      <div className="flex-col w-full max-w-[500px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
+      <div className="flex-col w-[90%] md:w-full max-w-[500px] fixed z-10 left-1/2 top-1/2 rounded-lg shadow-md bg-white -translate-x-1/2 -translate-y-1/2">
         <div className="w-full p-4">
           <Title />
           <Subtitle />

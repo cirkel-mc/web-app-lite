@@ -37,12 +37,14 @@ const AvatarCarousel: FC<AvatarCarouselProps> = ({ title, data }) => {
             name={item.name}
             image={item.image ?? PlaceholderCardImage}
             instrument={item.instrument}
-            onClick={() => router.push(`/musician/${String(item.name).replace(' ', '-')}`)}
+            onClick={() =>
+              router.push(`/musician/${String(item.name).replace(' ', '-')}`)
+            }
           />
         ))}
       </div>
     </div>
   )
-} 
+}
 
 export default AvatarCarousel

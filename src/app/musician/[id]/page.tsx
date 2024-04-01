@@ -56,7 +56,7 @@ export default function MusicianDetailPage() {
           />
         </div>
         <div className="flex gap-2 overflow-auto py-2">
-          <div className='flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]'>
+          <div className="flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]">
             <Image
               src={PlaceholderImage}
               width={80}
@@ -65,12 +65,12 @@ export default function MusicianDetailPage() {
               priority
               className="w-full"
             />
-            <div className='flex flex-col gap-1 justify-center p-5 pl-0'>
-              <p className='text-2xl font-medium'>User_Name</p>
+            <div className="flex flex-col gap-1 justify-center p-5 pl-0">
+              <p className="text-2xl font-medium">User_Name</p>
               <p>Review</p>
             </div>
           </div>
-          <div className='flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]'>
+          <div className="flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]">
             <Image
               src={PlaceholderImage}
               width={80}
@@ -79,12 +79,12 @@ export default function MusicianDetailPage() {
               priority
               className="w-full"
             />
-            <div className='flex flex-col gap-1 justify-center p-5 pl-0'>
-              <p className='text-2xl font-medium'>User_Name</p>
+            <div className="flex flex-col gap-1 justify-center p-5 pl-0">
+              <p className="text-2xl font-medium">User_Name</p>
               <p>Review</p>
             </div>
           </div>
-          <div className='flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]'>
+          <div className="flex shadow-[0px_0px_10px_rgba(0,0,0,0.25)] rounded min-w-[250px]">
             <Image
               src={PlaceholderImage}
               width={80}
@@ -93,8 +93,8 @@ export default function MusicianDetailPage() {
               priority
               className="w-full"
             />
-            <div className='flex flex-col gap-1 justify-center p-5 pl-0'>
-              <p className='text-2xl font-medium'>User_Name</p>
+            <div className="flex flex-col gap-1 justify-center p-5 pl-0">
+              <p className="text-2xl font-medium">User_Name</p>
               <p>Review</p>
             </div>
           </div>
