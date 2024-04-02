@@ -58,7 +58,9 @@ function Select(props: SelectProps) {
           )}
           <div className="flex items-center">
             <p className="text-[#717171] font-semibold">
-              {customValue !== '' ? customValue : placeholder}
+              {customValue
+                ? options.filter((item) => item.value === customValue)[0].label
+                : placeholder}
             </p>
           </div>
         </div>

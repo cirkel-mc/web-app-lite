@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'release/**'
-  pull_request: 
+  pull_request:
     branches:
       - 'master'
 
@@ -91,30 +91,30 @@ jobs:
           push: true
           tags: |
             ${{ env.CR_URL }}/${{ needs.setup-job-env.outputs.service_name }}:${{ env.IMAGE_TAG }}
-  
+
   deploy:
-      name: Deploy application
-      runs-on: ubuntu-22.04
-      env:
-        IMAGE_TAG: ${{ needs.setup-job-env.outputs.image_tag }}
-        NAMESPACE: ${{ needs.setup-job-env.outputs.namespace }}
-        FILE_VAULES: ${{ needs.setup-job-env.outputs.file_values }}
-      needs:
-        - setup-job-env
-        - build
-      steps:
-        - uses: actions/checkout@v4
-          with:
-            ref: ${{ github.ref }}
-            token: ${{ secrets.GITHUB_TOKEN }}
-        - name: Deploy with Helm Chart
-          uses: wahyd4/kubectl-helm-action@master
-          env:
-            KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-          with:
-            args: |
-              kubectl config use-context ${{ needs.setup-job-env.outputs.kube_context }}
-              helm repo add cirkel ${{ secrets.PAGES_URL }}/charts
-              helm upgrade --install ${{ needs.setup-job-env.outputs.service_name }} cirkel/cirkel-chart -f ${{ env.FILE_VAULES }} -n ${{ env.NAMESPACE }} \
-                --set image.repository=${{ env.CR_URL }}/${{ needs.setup-job-env.outputs.service_name }} \
-                --set image.tag=${{ env.IMAGE_TAG }}
+    name: Deploy application
+    runs-on: ubuntu-22.04
+    env:
+      IMAGE_TAG: ${{ needs.setup-job-env.outputs.image_tag }}
+      NAMESPACE: ${{ needs.setup-job-env.outputs.namespace }}
+      FILE_VAULES: ${{ needs.setup-job-env.outputs.file_values }}
+    needs:
+      - setup-job-env
+      - build
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy with Helm Chart
+        uses: wahyd4/kubectl-helm-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
+        with:
+          args: |
+            kubectl config use-context ${{ needs.setup-job-env.outputs.kube_context }}
+            helm repo add cirkel ${{ secrets.PAGES_URL }}/charts
+            helm upgrade --install ${{ needs.setup-job-env.outputs.service_name }} cirkel/cirkel-chart -f ${{ env.FILE_VAULES }} -n ${{ env.NAMESPACE }} \
+              --set image.repository=${{ env.CR_URL }}/${{ needs.setup-job-env.outputs.service_name }} \
+              --set image.tag=${{ env.IMAGE_TAG }}

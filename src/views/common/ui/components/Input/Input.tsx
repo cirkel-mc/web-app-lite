@@ -25,6 +25,7 @@ function Input(props: InputProps) {
         <FontAwesomeIcon
           icon={props.icon}
           className="w-4 h-4 text-neutral-500"
+          onClick={props.iconClick}
         />
       )}
     </div>
