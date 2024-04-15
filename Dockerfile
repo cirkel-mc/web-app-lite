@@ -5,7 +5,7 @@ FROM node:20.11.1-alpine3.19 AS builder
 WORKDIR /app
 
 # copy depedencies to builder
-COPY package.json pnpm.lock ./ 
+COPY package.json pnpm-lock.yaml ./ 
 
 # install dependencies
 RUN yarn install
