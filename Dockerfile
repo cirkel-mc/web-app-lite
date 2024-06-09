@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./ 
 
 # install dependencies
-RUN yarn install
+RUN pnpm install
 
 # copy any files from this project before build the application
 COPY . .
 
 # build applications
-RUN yarn build
+RUN pnpm build
 
 # stage 2
 # runner for running the application
