@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./ 
 
 # install dependencies
+RUN npm install pnpm
 RUN pnpm install
 
 # copy any files from this project before build the application
