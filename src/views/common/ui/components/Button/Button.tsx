@@ -15,7 +15,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   endIcon?: ReactNode
   disabled?: boolean
   round: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '' | 'full'
-  variant: 'primary' | 'secondary'
+  variant: 'primary' | 'secondary' | 'ghost'
   onClick?: () => void
 }
 
@@ -37,13 +37,13 @@ function Button(props: ButtonProps) {
   const switchSize = (btnSize: string) => {
     switch (btnSize) {
       case 'sm':
-        return 'px-2 py-2'
+        return 'px-2 py-1 text-sm'
       case 'md':
-        return 'px-3 py-2'
+        return 'px-3 py-2 text-base'
       case 'lg':
-        return 'px-4 py-2'
+        return 'px-4 py-2 text-lg'
       case 'xl':
-        return 'px-6 py-2.5'
+        return 'px-6 py-2.5 text-xl'
       default:
         return ''
     }
@@ -55,13 +55,15 @@ function Button(props: ButtonProps) {
         return 'bg-primary-30 hover:bg-primary-20'
       case 'secondary':
         return 'bg-secondary-40 hover:bg-secondary-30'
+      case 'ghost':
+        return 'bg-transparent hover:bg-transaparent !text-black border-[1px] border-primary-40'
       default:
         return ''
     }
   }
 
   const mergedClass = twMerge(
-    'text-white font-medium text-base !rounded-lg',
+    'text-white font-medium text-base !rounded-lg hover:opacity-90',
     switchVariant(variant),
     switchSize(size),
     `rounded-${round}`,

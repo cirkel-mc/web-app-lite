@@ -1,21 +1,20 @@
 'use client'
 
-import type { FC, ReactNode } from 'react'
-import { sfPro } from '@/views/common/assets/fonts/fonts'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import Navigation from '@/domains/common/components/Navigation'
-import BottomNavigation from '@/domains/common/components/Navigation/BottomNavigation'
-// import '@/views/common/styles/normalize.css'
-import '@/views/common/styles/globals.css'
-import useNavigation from '@/domains/common/hooks/navigation/useNavigation'
+import { QueryClientProvider } from '@tanstack/react-query'
 import { twMerge } from 'tailwind-merge'
+import type { FC, ReactNode } from 'react'
+
+import useNavigation from '@/domains/common/hooks/navigation/useNavigation'
+import BottomNavigation from '@/domains/common/components/Navigation/BottomNavigation'
+import Navigation from '@/domains/common/components/Navigation'
 import MetaTags from '@/domains/home/components/MetaTag'
+import { queryClient } from '@/domains/common/utils/query/client'
+import { sfPro } from '@/views/common/assets/fonts/fonts'
+import '@/views/common/styles/globals.css'
 
 interface RootLayoutProps {
   children: ReactNode
 }
-
-const queryClient = new QueryClient()
 
 const RootLayout: FC<RootLayoutProps> = (props) => {
   const { children } = props

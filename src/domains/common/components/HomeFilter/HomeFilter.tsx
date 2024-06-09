@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useRouter } from 'next/navigation'
 
 import Button from '@/views/common/ui/components/Button'
@@ -29,7 +29,7 @@ function HomeFilter() {
         round="full"
         classes="w-full"
         variant="primary"
-        onClick={() => router.push('/discovery')}
+        onClick={() => router.push(`/venue-list?date=2024-02-01`)}
       >
         <div className="flex justify-center items-center gap-2">
           <FontAwesomeIcon icon={faSearch} className="w-4 h-4" />

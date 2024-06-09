@@ -30,7 +30,7 @@ type CalendarProps = Omit<HTMLAttributes<HTMLDivElement>, keyof Props> & Props
 
 const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
   (
-    { open, onClose, onSubmit, id = 'klikoo-calendar', className, ...props },
+    { open, onClose, onSubmit, id = 'cirkel-calendar', className, ...props },
     _ref,
   ) => {
     const now = dayjs().locale({
@@ -91,8 +91,7 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
       if (!date || date !== undefined) {
         setDate(
           dayjs(
-            `${currentMonth.get('year')}-${currentMonth
-              .add(1, 'month')
+            `${currentMonth.get('year')}-${currentMonth.add(1, 'month')
               .get('month')}-${date}`,
           ),
         )
@@ -140,9 +139,9 @@ const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
           days.push(
             <div
               className={twMerge(
-                'flex w-[calc(100%/7)] rounded-lg px-2 py-2 justify-center capitalize',
+                'flex w-[calc(100%/7)] rounded-lg px-2 py-2 justify-center capitalize cursor-pointer hover:text-white hover:bg-blue-600',
                 d.month !== currentMonth.month() && '!text-gray-400',
-                d.day === date?.date() && '!bg-blue-600 !text-white rounded-lg',
+                d.day === date?.date() && d.month === currentMonth.month() && '!bg-blue-600 !text-white rounded-lg',
               )}
               key={i}
               data-date={`${d.day} -${d.month} -${d.year} `}

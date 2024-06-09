@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 // import { useAuth } from '@/domains/common/hooks/auth/use-auth'
 import CardCarousel from '@/domains/common/components/CardCarousel'
 import { cardCarouselData } from '@/models/common/mock-data/card-carousel-data'
@@ -39,7 +39,7 @@ function NearMeCarousel() {
   }, [activeKey])
 
   return (
-    <div className="mt-8 flex flex-col">
+    <div className="mt-2 flex flex-col">
       <p className="text-2xl font-semibold mb-2">Near Me</p>
       <Filter activeKey={activeKey} setActiveKey={setActiveKey} />
       <div>{renderCarousel}</div>

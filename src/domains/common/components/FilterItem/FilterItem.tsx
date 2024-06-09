@@ -14,7 +14,7 @@ function FilterItem({ icon, isActive, label, onClick }: FilterItemProps) {
   return (
     <div
       className={twMerge(
-        'inline-flex gap-2 items-center rounded-lg py-1 px-2 border-2 ',
+        'inline-flex gap-1 items-center rounded-[10px] py-1 px-2 border-2 ',
         isActive
           ? 'text-primary-30 border-primary-30'
           : 'border-neutral-500 text-neutral-500',
@@ -22,7 +22,7 @@ function FilterItem({ icon, isActive, label, onClick }: FilterItemProps) {
       onClick={onClick}
     >
       {icon && <FontAwesomeIcon icon={icon} className="w-4 h-4" />}
-      <span>{label}</span>
+      <span className="font-medium">{label}</span>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 'use client'
 
-import React, { Fragment, useState, useEffect, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import ToggleCategory from '@/views/session/components/ToggleCategory'
 import FieldInput from '@/views/common/ui/components/FieldInput'
 import FieldSelect from '@/views/common/ui/components/FieldSelect'
-import { faClock, faCalendar, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faCalendar } from '@fortawesome/free-solid-svg-icons'
 import Checkbox from '@/views/common/ui/components/Checkbox'
 import BottomSheetCalendar from '@/domains/common/components/BottomSheetCalendar/BottomSheetCalendar'
 import dayjs, { Dayjs } from 'dayjs'
@@ -14,14 +14,10 @@ import FilterItem from '@/domains/common/components/FilterItem/FilterItem'
 import Button from '@/views/common/ui/components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAdd, faMinus } from '@fortawesome/free-solid-svg-icons'
-import { useCreateSession } from '@/domains/create-session/usecase/useCreateSession'
-import { useCreateSessionForm } from '@/domains/create-session/usecase/useCreateSessionForm'
 import { MOCK_GENRES } from '@/domains/create-session/constants/mock-data-genres'
 import ErrorMessage from '@/domains/login/components/ErrorMessage'
-import { emitter } from '@/domains/common/utils/event/emitter'
 import MemberCard from '@/domains/create-session/components/MemberCard'
 import { MusicianAttribute } from '@/models/user/types/musician-types'
-import { UseFormReturn } from 'react-hook-form'
 
 interface Deps {
   form: any

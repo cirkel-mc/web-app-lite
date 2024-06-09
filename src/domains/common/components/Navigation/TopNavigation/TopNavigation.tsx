@@ -1,13 +1,22 @@
-import { Fragment } from 'react'
-import { useRouter } from 'next/navigation'
+import { useMemo } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPencil } from '@fortawesome/free-solid-svg-icons'
+import dayjs from 'dayjs'
 import BurgerButton from './BurgerButton'
 import Logo from './Logo'
 import { NavigationProps } from './types'
 
 function TopNavigation({ isHome, isExclude, title }: NavigationProps) {
   const router = useRouter()
+  const params = useSearchParams()
+
+  const date = useMemo(() => {
+    if (params.get('date'))
+      return dayjs(params.get('date')).format('DD MMMM YYYY')
+
+    return ''
+  }, [params])
 
   const renderContent = () => {
     if (isExclude) return <div />
@@ -32,7 +41,10 @@ function TopNavigation({ isHome, isExclude, title }: NavigationProps) {
                 onClick={() => router.back()}
               />
             </div>
-            <span className="text-2xl">{title}</span>
+            <div className="flex flex-col">
+              <span className="inline-block text-2xl">{title}</span>
+              <span className="inline-block text-sm ml-1">{date}</span>
+            </div>
           </div>
           <FontAwesomeIcon icon={faPencil} className="w-5 h-4" />
         </div>

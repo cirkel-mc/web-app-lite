@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 
 interface ThirdPartyLoginProps {
   href: string
-  icon: ReactNode
+  icon?: ReactNode
   text: string
 }
 

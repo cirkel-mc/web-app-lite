@@ -3,8 +3,7 @@ import '@/views/common/styles/globals.css'
 
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
-import { FC, ReactNode, Fragment } from 'react'
-import Footer from '@/domains/common/components/Footer'
+import { FC, ReactNode } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
