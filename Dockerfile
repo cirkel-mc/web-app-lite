@@ -32,4 +32,4 @@ COPY --from=builder /app/public ./public
 # expose port applications
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["pnpm", "start"]
