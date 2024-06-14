@@ -20,7 +20,7 @@ function Checkbox(props: CheckboxProps) {
   return (
     <div
       role="checkbox"
-      className="w-5 h-5 flex justify-center items-center rounded border-2 border-gray-500"
+      className="w-5 h-5 flex justify-center items-center rounded border-2 border-gray-500 hover:border-primary-10"
       aria-checked={active}
       onClick={handleClick}
     >

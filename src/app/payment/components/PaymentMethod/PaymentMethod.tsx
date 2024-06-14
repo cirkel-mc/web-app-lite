@@ -5,9 +5,9 @@ import React from 'react'
 // import FormControlLabel from '@mui/material/FormControlLabel'
 // import FormControl from '@mui/material/FormControl'
 
-import IconGopay from '@/domains/common/components/Icons/Gopay'
-import IconOvo from '@/domains/common/components/Icons/Ovo'
-import IconDana from '@/domains/common/components/Icons/Dana'
+// import IconGopay from '@/domains/common/components/Icons/Gopay'
+// import IconOvo from '@/domains/common/components/Icons/Ovo'
+// import IconDana from '@/domains/common/components/Icons/Dana'
 
 function PaymentMethod() {
   return (

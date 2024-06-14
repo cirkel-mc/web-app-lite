@@ -1,12 +1,8 @@
 'use client'
 
-import React, { useState } from 'react'
-import { twMerge } from 'tailwind-merge'
-import Date from './Date'
+import React from 'react'
 
 function DateRange() {
-  const [selected, setSelected] = useState('')
-
   return (
     <div className="w-full justify-center">
       <p className="text-sm mb-2">Choose Date</p>

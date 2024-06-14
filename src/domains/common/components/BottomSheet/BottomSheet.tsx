@@ -43,7 +43,10 @@ function BottomSheet(props: BottomSheetProps) {
         }}
       >
         <div className="flex items-center mb-4">
-          <IconCLose className="text-slate-100" onClick={onClose} />
+          <IconCLose
+            className="text-slate-100 cursor-pointer"
+            onClick={onClose}
+          />
           <div className="font-bold text-lg ml-2 text-black">{title}</div>
         </div>
         {/* <div className='w-full h-[2px] bg-neutral-300 rounded-2xl mt-2 mb-4' /> */}

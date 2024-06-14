@@ -1,6 +1,6 @@
 # stage 1
 # install and build dependencies on this projects
-FROM node:20.11.1-alpine3.19 AS builder
+FROM node:20.14-bullseye AS builder
 
 WORKDIR /app
 
@@ -8,17 +8,18 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./ 
 
 # install dependencies
-RUN yarn install
+RUN npm install -g pnpm
+RUN pnpm install
 
 # copy any files from this project before build the application
 COPY . .
 
 # build applications
-RUN yarn build
+RUN pnpm build
 
 # stage 2
 # runner for running the application
-FROM node:20.11.1-alpine3.19
+FROM node:20.14-bullseye
 
 WORKDIR /app
 
@@ -30,5 +31,3 @@ COPY --from=builder /app/public ./public
 
 # expose port applications
 EXPOSE 3000
-
-CMD ["yarn", "start"]

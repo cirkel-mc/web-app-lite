@@ -4,7 +4,6 @@ import React from 'react'
 import type { FC } from 'react'
 
 import { useRouter, usePathname } from 'next/navigation'
-import { emitter } from '@/domains/common/utils/event/emitter'
 import Card from './Card'
 
 type DataAvatarCarousel = {

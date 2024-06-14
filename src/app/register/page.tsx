@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Title from '../../domains/register/components/Title'
 import Subtitle from '../../domains/register/components/Subtitle'
 import Banner from '../../domains/register/components/Banner'
@@ -19,7 +18,6 @@ function RegisterPage() {
           <Divider />
           <ThirdPartyLogin
             href=""
-            icon={<FontAwesomeIcon icon="google" />}
             text="Sign in with Google"
           />
           <p className="text-xs mt-6 text-center">

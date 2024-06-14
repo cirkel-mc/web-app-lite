@@ -5,7 +5,6 @@ import {
   faClock,
   faMusic,
   faLocationDot,
-  faLocation,
 } from '@fortawesome/free-solid-svg-icons'
 
 interface FilterProps {
@@ -50,7 +49,7 @@ function Filter({ activeKey, setActiveKey }: FilterProps) {
         onClick={() => setActiveKey('studio')}
       >
         <FontAwesomeIcon icon={faLocationDot} className="w-4 h-4" />
-        <span>Session</span>
+        <span>Studio</span>
       </div>
     </div>
   )

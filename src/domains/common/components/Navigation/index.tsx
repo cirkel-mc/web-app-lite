@@ -2,7 +2,6 @@
 
 import React, { useCallback } from 'react'
 import { useScreenSize } from '@/domains/common/hooks/screen/use-screen-size'
-import NavigationDesktop from './NavigationDesktop'
 import TopNavigation from './TopNavigation'
 import { NavigationProps } from './TopNavigation/types'
 

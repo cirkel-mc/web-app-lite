@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronDown,
@@ -9,7 +9,7 @@ import { useOutsideClick } from '@/views/hooks/useOutsideClick'
 
 export type SelectItem = {
   label: string
-  value: string
+  value: string | number;
 }
 
 export interface SelectProps {
@@ -17,7 +17,8 @@ export interface SelectProps {
   options: SelectItem[]
   placeholder?: string
   iconPosition?: 'left' | 'right'
-  value: string
+  position?: 'center' | 'left'
+  value: string | number;
   onChange: (e: any) => void
 }
 
@@ -26,6 +27,7 @@ function Select(props: SelectProps) {
     options,
     icon,
     iconPosition = 'left',
+    position = 'left',
     placeholder,
     value,
     onChange,
@@ -49,42 +51,63 @@ function Select(props: SelectProps) {
   return (
     <div className="relative" ref={selectRef}>
       <div
-        className="flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 box-border border-[2px] border-[#717171] bg-white lg:h-8"
+        className={twMerge(
+          'flex flex-nowrap items-center rounded-full w-full  px-4 py-1 box-border border-[2px] border-[#717171] bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
+          isOpen
+            ? 'border-primary-20 !text-black placeholder:text-primary-20'
+            : 'text-[#717171]',
+          position === 'center' ? 'justify-between' : 'justify-between'
+        )}
         onClick={() => setIsOpen(true)}
       >
-        <div className="flex justify-start gap-2 items-center">
-          {icon && iconPosition === 'left' && (
-            <FontAwesomeIcon icon={icon} className="text-gray-500 w-4 h-4" />
-          )}
-          <div className="flex items-center">
-            <p className="text-[#717171] font-semibold">
-              {customValue
-                ? options.filter((item) => item.value === customValue)[0].label
-                : placeholder}
-            </p>
+        {icon && iconPosition === 'left' && (
+          <div className="flex justify-start gap-2 items-center">
+            <FontAwesomeIcon
+              icon={icon}
+              className={twMerge(
+                ' w-4 h-4',
+                isOpen ? 'text-black' : 'text-[#717171]',
+              )}
+            />
           </div>
+        )}
+        <div className="flex items-center">
+          <p className="font-semibold">
+            {customValue
+              ? options.filter((item) => item.value === customValue)[0].label
+              : placeholder}
+          </p>
         </div>
 
         {iconPosition === 'left' ? (
           <FontAwesomeIcon
             icon={faChevronDown}
-            className="text-gray-500 w-4 h-4"
+            className={twMerge(
+              'w-4 h-4',
+              isOpen ? 'text-primary-20' : 'text-[#717171]',
+            )}
           />
         ) : (
           icon &&
           iconPosition === 'right' && (
-            <FontAwesomeIcon icon={icon} className="text-gray-500 w-4 h-4" />
+            <FontAwesomeIcon
+              icon={icon}
+              className={twMerge(
+                'w-4 h-4',
+                isOpen ? 'text-primary-20' : 'text-[#717171]',
+              )}
+            />
           )
         )}
       </div>
       {isOpen && (
-        <div className="z-50 w-full absolute top-[35px] bg-white flex flex-col gap-2 shadow-md border-[1px] border-neutral-40 mt-2 pt-2 rounded-lg max-h-[200px] overflow-auto">
+        <div className="z-50 w-full absolute top-[35px] bg-white flex flex-col gap-2 shadow-md border-[1px] border-neutral-40 mt-2 pt-2 rounded-lg max-h-[200px] overflow-auto focus:border-primary-20 cursor-pointer">
           {options.map((item) => (
             <p
               key={item.value}
               className={twMerge(
-                'hover:bg-secondary-10 px-4 py-2',
-                item.value === value && 'bg-secondary-10',
+                'hover:bg-secondary-10 hover:text-white px-4 py-2',
+                item.value === value && 'bg-secondary-10 !text-white',
               )}
               onClick={handleChange}
             >

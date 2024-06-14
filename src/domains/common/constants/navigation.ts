@@ -7,4 +7,5 @@ export const EXCLUDE_BOTTOMNAV_ROUTES = [
   '/create-session/add-member',
   '/musician',
   '/session-list',
+  '/venue-list',
 ]

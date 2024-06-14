@@ -3,8 +3,9 @@ import type { FC } from 'react'
 import dynamic from 'next/dynamic'
 import dayjs, { Dayjs } from 'dayjs'
 
-import IconCalendar from '@/domains/common/components/Icons/Calendar'
-import IconSchedule from '@/domains/common/components/Icons/Clock'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClockFour, faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { twMerge } from 'tailwind-merge'
 
 interface DateTimeProps {
   type: string
@@ -31,17 +32,38 @@ const DateTime: FC<DateTimeProps> = (props) => {
 
   const Icon = useMemo(() => {
     if (type === 'date') {
-      return <IconCalendar className="ml-1" size={16} />
+      return (
+        <FontAwesomeIcon
+          icon={faCalendar}
+          className={twMerge(
+            'ml-1 w-4 h-4',
+            openDate ? '!text-primary-20' : 'text-[#717171]',
+          )}
+        />
+      )
     }
     if (type === 'time') {
-      return <IconSchedule className="ml-1" size={16} />
+      return (
+        <FontAwesomeIcon
+          icon={faClockFour}
+          className={twMerge(
+            'ml-1 w-4 h-4',
+            openDate ? '!text-primary-20' : 'text-[#717171]',
+          )}
+        />
+      )
     }
-  }, [type])
+  }, [type, openDate])
 
   const Label = useMemo(() => {
     if (type === 'date') {
       return (
-        <span className="font-semibold text-[#717171]">
+        <span
+          className={twMerge(
+            'font-semibold ',
+            openDate ? 'text-primary-20' : 'text-[#717171]',
+          )}
+        >
           {date ? dayjs(date)?.format('DD/MM/YYYY') : 'DD/MM/YYYY'}
         </span>
       )
@@ -57,18 +79,35 @@ const DateTime: FC<DateTimeProps> = (props) => {
         if (minute < 10) minute = `0${minute}`
 
         return (
-          <span className="font-semibold text-[#717171]">{`${hour}.${minute}`}</span>
+          <span
+            className={twMerge(
+              'font-semibold ',
+              openDate ? '!text-primary-20' : 'text-[#717171]',
+            )}
+          >{`${hour}.${minute}`}</span>
         )
       }
 
-      return <span className="font-semibold text-[#717171]">HH:MM</span>
+      return (
+        <span
+          className={twMerge(
+            'font-semibold ',
+            openDate ? 'text-primary-20' : 'text-[#717171]',
+          )}
+        >
+          HH:MM
+        </span>
+      )
     }
-  }, [type, date, time])
+  }, [type, date, time, openDate])
 
   return (
     <>
       <div
-        className="flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 box-border border-[2px] border-[#717171] bg-white lg:h-8"
+        className={twMerge(
+          'flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 box-border border-[2px] bg-white lg:h-8 cursor-pointer hover:border-primary-20 hover:!text-primary-20',
+          openDate ? 'border-primary-20 !text-primary-20' : 'border-[#717171]',
+        )}
         onClick={handleClick}
       >
         {Label} {Icon}

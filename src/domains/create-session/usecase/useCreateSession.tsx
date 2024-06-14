@@ -1,6 +1,5 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { Dayjs } from 'dayjs'
-import MemberCard from '../components/MemberCard'
 import { MusicianAttribute } from '@/models/user/types/musician-types'
 
 export const useCreateSession = () => {

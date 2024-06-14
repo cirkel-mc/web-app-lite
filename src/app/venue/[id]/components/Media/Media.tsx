@@ -1,20 +1,16 @@
 'use client'
 
-import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-import { useScreenSize } from '@/domains/common/hooks/screen/use-screen-size'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 
 import IconBack from '@/domains/common/components/Icons/Back'
 import IconShare from '@/domains/common/components/Icons/Share'
-import Indicator from './Indicator'
 
 function Media() {
   const router = useRouter()
-  const [index, setIndex] = useState(0)
 
   return (
     <div className="relative left-0 top-0">

@@ -14,9 +14,9 @@ function Input(props: InputProps) {
   }
 
   return (
-    <div className="flex items-center text-base border-2 border-neutral-500 rounded-[24px] px-4 py-1">
+    <div className="flex items-center text-base border-2 border-neutral-500 rounded-[24px] px-4 py-1 hover:border-primary-20 hover:!text-primary-20">
       <input
-        className="placeholder:font-medium placeholder:text-neutral-500 text-neutral-500 font-medium w-full focus:outline-none"
+        className="placeholder:font-medium placeholder:text-neutral-500 text-neutral-500 font-medium w-full focus:outline-none focus:text-black"
         {...props}
         onChange={handleChange}
         value={customValue}

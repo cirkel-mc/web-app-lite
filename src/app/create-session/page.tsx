@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import CreateSessionForm from '@/domains/create-session/components/CreateSessionForm/CreateSessionForm'
 import AddSessionMemberForm from '@/domains/create-session/components/AddMemberForm'
 import { useCreateSession } from '@/domains/create-session/usecase/useCreateSession'

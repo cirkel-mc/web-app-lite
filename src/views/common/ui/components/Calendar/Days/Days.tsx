@@ -17,7 +17,11 @@ function Days({ now }: DaysProps) {
     )
   }
 
-  return <div className="flex gap-2 px-4 text-neutral-400">{days}</div>
+  return (
+    <div className="flex gap-2 px-4 text-neutral-400 cursor-pointer">
+      {days}
+    </div>
+  )
 }
 
 export default Days

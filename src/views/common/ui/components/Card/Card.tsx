@@ -20,7 +20,7 @@ function Card(props: CardProps) {
 
   return (
     <div
-      className="flex flex-col rounded-[10px] p-4 lg:p-5 relative"
+      className="flex flex-col rounded-[10px] p-4 lg:p-5 relative  cursor-pointer"
       style={{ boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px 0px' }}
     >
       <div className="relative w-[153px] h-[164px]" onClick={onClick}>

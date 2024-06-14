@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment, Suspense } from 'react'
+import React from 'react'
 
 import Title from './components/Title'
 import Media from './components/Media'
