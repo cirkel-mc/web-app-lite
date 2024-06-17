@@ -3,11 +3,11 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPencil } from '@fortawesome/free-solid-svg-icons'
 import dayjs from 'dayjs'
-import BurgerButton from './BurgerButton'
 import Logo from './Logo'
 import { NavigationProps } from './types'
+import NotificationIcon from './Notification/NotificationIcon/NotificationIcon'
 
-function TopNavigation({ isHome, isExclude, title }: NavigationProps) {
+function TopNavigation({ isHome, isExclude, title, isMutation }: NavigationProps) {
   const router = useRouter()
   const params = useSearchParams()
 
@@ -24,9 +24,7 @@ function TopNavigation({ isHome, isExclude, title }: NavigationProps) {
       return (
         <div className="flex justify-between items-center px-4 py-4 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
           <Logo />
-          <div className="flex gap-4 items-center justify-center">
-            <BurgerButton />
-          </div>
+          <NotificationIcon count={3} />
         </div>
       )
     }
@@ -46,7 +44,7 @@ function TopNavigation({ isHome, isExclude, title }: NavigationProps) {
               <span className="inline-block text-sm ml-1">{date}</span>
             </div>
           </div>
-          <FontAwesomeIcon icon={faPencil} className="w-5 h-4" />
+          {isMutation && <FontAwesomeIcon icon={faPencil} className="w-5 h-4" />}
         </div>
       )
     }

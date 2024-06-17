@@ -13,6 +13,8 @@ export type SelectItem = {
 }
 
 export interface SelectProps {
+  classes?: string;
+  containerClass?: string;
   icon?: IconDefinition
   options: SelectItem[]
   placeholder?: string
@@ -24,6 +26,8 @@ export interface SelectProps {
 
 function Select(props: SelectProps) {
   const {
+    classes,
+    containerClass,
     options,
     icon,
     iconPosition = 'left',
@@ -49,14 +53,15 @@ function Select(props: SelectProps) {
   }
 
   return (
-    <div className="relative" ref={selectRef}>
+    <div className={twMerge("relative", containerClass)} ref={selectRef}>
       <div
         className={twMerge(
-          'flex flex-nowrap items-center rounded-full w-full  px-4 py-1 box-border border-[2px] border-[#717171] bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
+          'flex flex-nowrap items-center rounded-full w-full  px-4 py-1 box-border border-[1px] shadow-input border-gray-200 bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
           isOpen
             ? 'border-primary-20 !text-black placeholder:text-primary-20'
             : 'text-[#717171]',
-          position === 'center' ? 'justify-between' : 'justify-between'
+          position === 'center' ? 'justify-between' : 'justify-between',
+          classes
         )}
         onClick={() => setIsOpen(true)}
       >

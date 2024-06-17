@@ -15,24 +15,25 @@ function Media() {
   return (
     <div className="relative left-0 top-0">
       <IconBack
-        className="absolute w-8 left-4 top-4 z-10 text-white fill-white"
+        className="absolute w-8 left-4 top-2 z-10 text-white fill-white"
         onClick={() => router.push('/')}
       />
-      <div className="relative w-full h-[240px] overflow-auto">
+      <div className="relative w-full h-[300px] overflow-auto">
         <Carousel
           className="h-full"
           infiniteLoop
           autoPlay
           showArrows={false}
           showStatus={false}
+          showThumbs={false}
         >
-          <div className="relative h-[240px]">
+          <div className="relative h-[300px]">
             <Image
               src="https://i.pinimg.com/564x/95/9a/67/959a670a281fbe52cfcfe7d50c47122d.jpg"
               alt="studio band"
               fill
               priority={false}
-              className="object-cover rounded-b-2xl"
+              className="object-cover rounded"
             />
           </div>
           <div>
@@ -41,7 +42,7 @@ function Media() {
               alt="studio band"
               fill
               priority={false}
-              className="object-cover rounded-b-2xl"
+              className="object-cover rounded"
             />
           </div>
           <div>
@@ -50,7 +51,7 @@ function Media() {
               alt="studio band"
               fill
               priority={false}
-              className="object-cover rounded-b-2xl"
+              className="object-cover rounded"
             />
           </div>
         </Carousel>
@@ -61,7 +62,7 @@ function Media() {
         <Indicator current={index} index={2} onClick={handleChangeIndex} />
         <Indicator current={index} index={3} onClick={handleChangeIndex} />
       </div> */}
-      <IconShare className="w-6 absolute right-5 top-4 z-10 text-white fill-white" />
+      <IconShare className="w-6 absolute right-5 top-2 z-10 text-white fill-white" />
     </div>
   )
 }

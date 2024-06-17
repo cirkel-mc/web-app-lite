@@ -1,6 +1,6 @@
 export const cardCarouselData = [
   {
-    id: 1,
+    id: 'starlight-music',
     title: 'Starlight Music',
     image:
       'https://www.lazone.id/storage/news/November_2022/08_Nov/Music/studio-1.jpg',
@@ -8,7 +8,7 @@ export const cardCarouselData = [
     address: 'Jakarta',
   },
   {
-    id: 2,
+    id: 'backbeat-studio',
     title: 'Backbeat Studio',
     image:
       'https://www.lazone.id/storage/news/November_2022/08_Nov/Music/orig-studio-2.jpg',
@@ -16,7 +16,7 @@ export const cardCarouselData = [
     address: 'Duren Sawit',
   },
   {
-    id: 3,
+    id: 'lingkar-delapan-production',
     title: 'Lingkar Delapan Production',
     image:
       'https://www.lazone.id/storage/news/November_2022/08_Nov/Music/orig-studio-3.jpg',
@@ -24,7 +24,7 @@ export const cardCarouselData = [
     address: 'Jakarta',
   },
   {
-    id: 4,
+    id: 'flame-music-studio',
     title: 'Flame Music Studio',
     image:
       'https://www.lazone.id/storage/news/November_2022/08_Nov/Music/orig-studio-4.jpg',
@@ -32,7 +32,7 @@ export const cardCarouselData = [
     address: 'Gambir',
   },
   {
-    id: 5,
+    id: 'aspa studio',
     title: 'Aspa Studio',
     image:
       'https://www.lazone.id/storage/news/November_2022/08_Nov/Music/orig-studio-5.jpg',
@@ -40,7 +40,7 @@ export const cardCarouselData = [
     address: 'Jakarta',
   },
   {
-    id: 6,
+    id: 'dk-music-studio-green-lake',
     title: 'DK Studio Music Green Lake',
     image:
       'https://andreasagung.com/wp-content/uploads/2017/10/Studio-Band-2.jpg.webp',
@@ -48,7 +48,7 @@ export const cardCarouselData = [
     address: 'Tangerang',
   },
   {
-    id: 7,
+    id: 'dk-music-studio-green-lake',
     title: 'DK Studio Music Green Lake',
     image:
       'https://andreasagung.com/wp-content/uploads/2017/10/Studio-Band-2.jpg.webp',
@@ -56,7 +56,7 @@ export const cardCarouselData = [
     address: 'Tangerang',
   },
   {
-    id: 8,
+    id: 'dk-music-studio-green-lake',
     title: 'DK Studio Music Green Lake',
     image:
       'https://andreasagung.com/wp-content/uploads/2017/10/Studio-Band-2.jpg.webp',

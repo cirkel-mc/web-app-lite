@@ -1,28 +1,16 @@
 'use client'
 
-import React from 'react'
+import Media from '@/domains/venue/components/Media'
+import Tabs from '@/views/common/ui/components/Tabs'
+import { TAB_ITEMS } from '@/domains/venue/constants/tab-list'
 
-import Title from './components/Title'
-import Media from './components/Media'
-import DateRange from './components/DateRange'
-import AvailableTime from './components/AvailableTime'
-import Description from './components/Description/Description'
-import PurchaseBox from './components/PurchaseBox'
-// import Loading from './loading';
-
-function VenueDetail() {
+export default function VenueDetail() {
   return (
     <>
       <Media />
-      <div className="px-4 pb-[80px]">
-        <Title title="Studio Rawamangun" />
-        <DateRange />
-        <AvailableTime />
-        <Description />
+      <div className='mt-4'>
+        <Tabs data={TAB_ITEMS} />
       </div>
-      <PurchaseBox />
     </>
   )
 }
-
-export default VenueDetail

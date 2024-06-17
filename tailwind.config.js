@@ -19,6 +19,9 @@ module.exports = {
           50: '#016f61',
         },
       },
+      boxShadow: {
+        input: '0px 1px 2px 0px rgba(0,0,0,0.12)'
+      }
     },
   },
   plugins: [],

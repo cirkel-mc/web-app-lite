@@ -18,7 +18,7 @@ interface RootLayoutProps {
 
 const RootLayout: FC<RootLayoutProps> = (props) => {
   const { children } = props
-  const { isHome, isExclude, isExcludeBottom, generateTitle } = useNavigation()
+  const { isHome, isExclude, isExcludeBottom, isMutation, generateTitle } = useNavigation()
 
   return (
     <html lang="en">
@@ -31,6 +31,7 @@ const RootLayout: FC<RootLayoutProps> = (props) => {
             isHome={isHome}
             isExclude={isExclude}
             title={!isHome ? generateTitle() : ''}
+            isMutation={isMutation}
           />
           {children}
           <BottomNavigation isExclude={isExcludeBottom} />

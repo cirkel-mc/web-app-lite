@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 
 interface DateProps {
   text: string
-  isActive: boolean
+  isActive?: boolean
   onClick: () => void
 }
 
@@ -11,12 +11,13 @@ function Date({ text, isActive, onClick }: DateProps) {
   return (
     <div
       className={twMerge(
-        'box-border rounded-lg py-2 px-3 border-2 border-slate-200 shadow-md min-w-[155px]',
-        isActive && 'bg-primary-400 border-primary-300 text-white border-0',
+        'flex flex-col p-1',
+        isActive ? 'bg-secondary-40 rounded-lg !text-white' : ''
       )}
       onClick={onClick}
     >
-      {text}
+      <p className='text-xs text-center mb-0'>Mon</p>
+      <p className='text-sm text-center mb-0'>31/5/2023</p>
     </div>
   )
 }

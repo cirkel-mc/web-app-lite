@@ -3,4 +3,5 @@ export interface NavigationProps {
   isExclude: boolean
   title?: string
   isAuth?: boolean
+  isMutation?: boolean;
 }

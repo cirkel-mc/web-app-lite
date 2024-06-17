@@ -9,7 +9,7 @@ import {
 
 function Card() {
   return (
-    <div className="flex flex-col items-center bg-white rounded-xl p-5 shadow-[0px_0px_10px_rgba(0,0,0,0.25)] min-w-[260px]">
+    <div className="flex flex-col items-center bg-white rounded-xl p-5 shadow-lg min-w-[260px]">
       <p className="text-2xl font-semibold mb-1">Session_Name</p>
       <div className="flex justify-center gap-3 text-sm">
         <div className="flex gap-1 items-center">

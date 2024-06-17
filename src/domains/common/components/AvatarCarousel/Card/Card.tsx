@@ -12,7 +12,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ name, image, instrument, onClick }) => (
   <div
-    className="p-5 lg:p-5 flex flex-col justify-center items-center rounded cursor-pointer w-[193px] min-h-[239px] shadow-[0px_0px_10px_rgba(0,0,0,0.25)]"
+    className="p-5 lg:p-5 flex flex-col justify-center items-center rounded-lg cursor-pointer w-[193px] min-h-[239px] shadow-lg"
     onClick={onClick}
   >
     <div className="relative rounded-full bg-slate-400 w-[153px] h-[156px]">

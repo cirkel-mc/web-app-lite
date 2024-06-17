@@ -31,7 +31,8 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
   }
 
   const render = useMemo(() => {
-    if (isPending || !isMount && !isExclude) {
+    console.log({ isPending, isMount })
+    if (isPending || !isMount) {
       return <Loader />
     }
     if (!isLoggedIn || isExclude && !isPending && isMount) return <div />
@@ -77,7 +78,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
         </div>
       </div>
     )
-  }, [isPending, isLoggedIn])
+  }, [isPending, isLoggedIn, isMount])
 
   useEffect(() => {
     setIsMount(true)

@@ -2,6 +2,7 @@ import { usePathname } from 'next/navigation'
 import {
   EXCLUDE_TOPNAV_ROUTES,
   EXCLUDE_BOTTOMNAV_ROUTES,
+  INCLUDE_MUTATION_ROUTES
 } from '../../constants/navigation'
 
 export default function useNavigation() {
@@ -11,6 +12,7 @@ export default function useNavigation() {
   const isExcludeBottom = EXCLUDE_BOTTOMNAV_ROUTES.some(
     (item) => item === path || path.startsWith(item),
   )
+  const isMutation = INCLUDE_MUTATION_ROUTES.some((item) => item === path)
 
   const generateTitle = () => {
     const paths = path.split('/').slice(1)
@@ -40,6 +42,7 @@ export default function useNavigation() {
     isHome,
     isExclude,
     isExcludeBottom,
+    isMutation,
     generateTitle,
   }
 }
