@@ -7,7 +7,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import Card from './Card'
 
 type DataAvatarCarousel = {
-  id: number
+  id: string
   image: string
   title: string
   price: string
@@ -24,7 +24,7 @@ const CardCarousel: FC<CardCarouselProps> = (props) => {
   const router = useRouter()
   const pathname = usePathname()
 
-  const handleRedirect = (id: number) => {
+  const handleRedirect = (id: string) => {
     router.push(`venue/${id}`)
   }
 
@@ -33,7 +33,7 @@ const CardCarousel: FC<CardCarouselProps> = (props) => {
       <p className="text-2xl font-semibold mb-2 lg:text-2xl lg:font-bold lg:mb-4 lg:ml-1">
         {title}
       </p>
-      <div className="flex gap-4 lg:gap-4 flex-nowrap overflow-auto py-2">
+      <div className="flex gap-4 lg:gap-4 flex-nowrap overflow-auto py-2 pl-2">
         {data.map((item, index) => (
           <Card
             key={index}

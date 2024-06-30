@@ -60,8 +60,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
       return (
         <span
           className={twMerge(
-            'font-semibold ',
-            openDate ? 'text-primary-20' : 'text-[#717171]',
+            'font-medium ',
+            openDate ? 'text-primary-20' : 'text-neutral-400',
           )}
         >
           {date ? dayjs(date)?.format('DD/MM/YYYY') : 'DD/MM/YYYY'}
@@ -81,8 +81,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
         return (
           <span
             className={twMerge(
-              'font-semibold ',
-              openDate ? '!text-primary-20' : 'text-[#717171]',
+              'font-medium ',
+              openDate ? '!text-primary-20' : 'text-neutral-400',
             )}
           >{`${hour}.${minute}`}</span>
         )
@@ -91,8 +91,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
       return (
         <span
           className={twMerge(
-            'font-semibold ',
-            openDate ? 'text-primary-20' : 'text-[#717171]',
+            'font-medium ',
+            openDate ? 'text-primary-20' : 'text-neutral-400',
           )}
         >
           HH:MM
@@ -105,8 +105,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
     <>
       <div
         className={twMerge(
-          'flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 box-border border-[2px] bg-white lg:h-8 cursor-pointer hover:border-primary-20 hover:!text-primary-20',
-          openDate ? 'border-primary-20 !text-primary-20' : 'border-[#717171]',
+          'flex flex-nowrap items-center justify-between rounded-full w-full  px-4 py-1 box-border border-[1px] bg-white lg:h-8 cursor-pointer shadow-input border-neutral-50 hover:border-primary-20 hover:!text-primary-20',
+          openDate ? 'border-primary-20 !text-primary-20' : 'border-gray-200',
         )}
         onClick={handleClick}
       >

@@ -7,5 +7,5 @@ export const getCities = () => {
     headers: {
       Authorization: btoa(uuid())
     }
-  }).then(data => console.log(data))
+  })
 }

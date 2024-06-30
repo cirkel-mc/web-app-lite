@@ -182,7 +182,7 @@ const CreateSession = ({
             <div>
               <p className="mb-2">Where is it?</p>
               <textarea
-                className="px-4 py-2 text-base border-2 border-neutral-500 rounded-[24px] placeholder:font-medium placeholder:text-neutral-500 text-neutral-500 font-medium w-full focus:outline-none"
+                className="px-4 py-2 text-base box-border border-[1px] shadow-input border-gray-200  rounded-2xl placeholder:font-medium placeholder:text-neutral-500 text-neutral-500 font-medium w-full focus:outline-none"
                 placeholder="Put your location"
                 onChange={(e) => {
                   setValue('location', e.target.value)

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const VenueDetailLayout: FC<VenueDetailLayoutProps> = (props) => {
   const { children } = props
 
-  return <>{children}</>
+  return <div className='px-2.5 pt-[75px] max-w-[500px] mx-auto box-border w-full overflow-auto h-screen'>{children}</div>
 }
 
 export default VenueDetailLayout

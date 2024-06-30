@@ -18,7 +18,7 @@ function RegisterPage() {
           <Divider />
           <ThirdPartyLogin
             href=""
-            text="Sign in with Google"
+            text="Sign up with Google"
           />
           <p className="text-xs mt-6 text-center">
             Already have account?{' '}

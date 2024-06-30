@@ -6,5 +6,5 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   isClock?: boolean
   iconClick?: () => void
   onChange: (e: any) => void
-  value: string
+  value?: string
 }

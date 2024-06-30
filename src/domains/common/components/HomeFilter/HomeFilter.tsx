@@ -14,7 +14,7 @@ function HomeFilter() {
   const router = useRouter()
 
   return (
-    <div className="w-full bg-white px-[10px] py-5 rounded-lg -z-[1]  mx-auto shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+    <div className="w-full bg-white px-[10px] py-4 rounded-lg -z-[1]  mx-auto shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
       <Location />
       <div className="flex justify-between mt-3 mb-3 gap-2">
         <div className="w-[55%] h-full">
@@ -25,9 +25,9 @@ function HomeFilter() {
         </div>
       </div>
       <Button
-        size="md"
-        round="full"
-        classes="w-full"
+        size="sm"
+        round="sm"
+        classes="w-full py-[6px] mt-1 !rounded-lg"
         variant="primary"
         onClick={() => router.push(`/venue-list?date=2024-02-01`)}
       >

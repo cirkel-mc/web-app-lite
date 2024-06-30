@@ -9,7 +9,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import Button from '@/views/common/ui/components/Button'
 
-import { cookie } from '@/domains/common/utils/cookie/cookie'
 import { loginSchema } from '@/models/login/schema/login'
 import Title from '../../domains/login/components/Title'
 import Subtitle from '../../domains/login/components/Subtitle'
@@ -17,6 +16,7 @@ import Divider from '../../domains/login/components/Divider'
 import ThirdPartyLogin from '../../domains/login/components/ThirdPartyLogin'
 import Banner from '../../domains/login/components/Banner'
 import ErrorMessage from '../../domains/login/components/ErrorMessage'
+import Input from '@/views/common/ui/components/Input'
 
 interface LoginForm {
   email: string
@@ -34,12 +34,14 @@ function LoginPage() {
     mode: 'all',
   })
 
-  const { register, handleSubmit, formState } = form
+  const { register, handleSubmit, getValues, formState, setValue } = form
   const { errors } = formState
 
   const onSubmit = (data: LoginForm) => {
-    cookie.set('user', JSON.stringify(data.email))
-    router.push('/')
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('user', JSON.stringify(data.email))
+      router.push('/')
+    }
   }
 
   return (
@@ -50,13 +52,16 @@ function LoginPage() {
           <Subtitle />
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className="mb-4 w-full">
-              <p className="text-sm mb-1">Email</p>
-              <input
-                className="w-full text-sm rounded border-gray-400 border-[1px] py-2 px-3"
+              <p className="text-sm mb-2">Email</p>
+              <Input
                 type="email"
                 alt="Please input your email"
                 placeholder="Ex: johndoe@gmail.com"
                 {...register('email')}
+                onChange={(e) => {
+                  setValue('email', e.target.value)
+                }}
+                value={getValues('email')}
               />
             </div>
             {errors.email && (
@@ -64,13 +69,16 @@ function LoginPage() {
             )}
             <div className="mb-4" />
             <div className="mb-4 w-full">
-              <p className="text-sm mb-1">Password</p>
-              <input
-                className="w-full text-sm rounded border-gray-400 border-[1px] py-2 px-3"
+              <p className="text-sm mb-2">Password</p>
+              <Input
                 type="password"
                 alt="Please input your password"
                 placeholder="Your password"
                 {...register('password')}
+                onChange={(e) => {
+                  setValue('password', e.target.value)
+                }}
+                value={getValues('password')}
               />
             </div>
             {errors.password && (
