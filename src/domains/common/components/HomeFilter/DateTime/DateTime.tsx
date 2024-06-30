@@ -60,8 +60,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
       return (
         <span
           className={twMerge(
-            'font-semibold ',
-            openDate ? 'text-primary-20' : 'text-[#717171]',
+            'font-medium ',
+            openDate ? 'text-primary-20' : 'text-neutral-400',
           )}
         >
           {date ? dayjs(date)?.format('DD/MM/YYYY') : 'DD/MM/YYYY'}
@@ -81,8 +81,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
         return (
           <span
             className={twMerge(
-              'font-semibold ',
-              openDate ? '!text-primary-20' : 'text-[#717171]',
+              'font-medium ',
+              openDate ? '!text-primary-20' : 'text-neutral-400',
             )}
           >{`${hour}.${minute}`}</span>
         )
@@ -91,8 +91,8 @@ const DateTime: FC<DateTimeProps> = (props) => {
       return (
         <span
           className={twMerge(
-            'font-semibold ',
-            openDate ? 'text-primary-20' : 'text-[#717171]',
+            'font-medium ',
+            openDate ? 'text-primary-20' : 'text-neutral-400',
           )}
         >
           HH:MM

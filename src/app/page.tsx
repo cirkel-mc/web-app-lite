@@ -13,12 +13,12 @@ import { avatarCarouselData } from '@/models/common/mock-data/avatar-carousel-da
 import BottomContent from '@/domains/home/components/BottomContent'
 
 function Home() {
-  const { isLoggedIn, isPending } = useAuth()
+  const { user } = useAuth()
   const [isMount, setIsMount] = useState(false)
 
   const renderActiveSession = () => {
-    if (isPending || !isMount) return <Loader />
-    if (!isLoggedIn && !isPending && isMount) return <div />
+    if (!isMount) return <Loader />
+    if (!user && isMount) return <div />
 
     return <ActiveSession />
   }
@@ -26,7 +26,6 @@ function Home() {
   useEffect(() => {
     setIsMount(true)
   }, [])
-
 
   return (
     <>

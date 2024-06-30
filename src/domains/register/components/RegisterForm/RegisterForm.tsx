@@ -21,8 +21,14 @@ import Alert from '@/views/common/ui/components/Alert'
 const RegisterForm = () => {
   const router = useRouter()
   const [type, setType] = useState('password')
-  const { mutate, data: result, isSuccess, isError, failureReason } = useRegister();
-  const { data: city } = useCities();
+  const {
+    mutate,
+    data: result,
+    isSuccess,
+    isError,
+    failureReason,
+  } = useRegister()
+  const { data: city } = useCities()
 
   const form = useForm({
     defaultValues: {
@@ -38,14 +44,12 @@ const RegisterForm = () => {
   const { errors } = formState
 
   const onSubmit = (data: RegisterFormPayload) => {
-    console.log({ data, result });
     mutate({
       username: data.username,
       email: data.email,
       password: data.password,
-      city_id: data.city
+      city_id: data.city,
     })
-
 
     if (isSuccess) {
       cookie.set('user', {
@@ -62,12 +66,16 @@ const RegisterForm = () => {
 
   return (
     <div>
-      {
-        isSuccess && <Alert variant='success'><p>Please login with registered account</p></Alert>
-      }
-      {
-        isError && <Alert variant='error'><p>{failureReason?.message}</p></Alert>
-      }
+      {isSuccess && (
+        <Alert variant="success">
+          <p>Please login with registered account</p>
+        </Alert>
+      )}
+      {isError && (
+        <Alert variant="error">
+          <p>{failureReason?.message}</p>
+        </Alert>
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4 w-full">
           <FieldInput
@@ -128,16 +136,22 @@ const RegisterForm = () => {
 
         <div className="w-full">
           <p className="text-sm mb-1">City:</p>
-          <Select
-            options={city ? city?.data?.map((item: any) => {
-              return { label: item.name, value: item.id }
-            }) : []}
-            placeholder="Your city"
-            value={getValues('city')}
-            onChange={(e) => {
-              setValue('city', e)
-            }}
-          />
+          {city && (
+            <Select
+              options={
+                city
+                  ? city?.data?.map((item: any) => {
+                    return { label: item.name, value: item.id }
+                  })
+                  : []
+              }
+              placeholder="Your city"
+              value={getValues('city')}
+              onChange={(e) => {
+                setValue('city', e)
+              }}
+            />
+          )}
         </div>
 
         <Button

@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 
-import IconBack from '@/domains/common/components/Icons/Back'
 import IconShare from '@/domains/common/components/Icons/Share'
 
 function Media() {
@@ -14,10 +13,6 @@ function Media() {
 
   return (
     <div className="relative left-0 top-0">
-      <IconBack
-        className="absolute w-8 left-4 top-2 z-10 text-white fill-white"
-        onClick={() => router.push('/')}
-      />
       <div className="relative w-full h-[300px] overflow-auto">
         <Carousel
           className="h-full"
@@ -56,12 +51,6 @@ function Media() {
           </div>
         </Carousel>
       </div>
-      {/* <div className='flex gap-3 absolute bottom-4 left-1/2 -translate-x-1/2'>
-        <Indicator current={index} index={0} onClick={handleChangeIndex} />
-        <Indicator current={index} index={1} onClick={handleChangeIndex} />
-        <Indicator current={index} index={2} onClick={handleChangeIndex} />
-        <Indicator current={index} index={3} onClick={handleChangeIndex} />
-      </div> */}
       <IconShare className="w-6 absolute right-5 top-2 z-10 text-white fill-white" />
     </div>
   )

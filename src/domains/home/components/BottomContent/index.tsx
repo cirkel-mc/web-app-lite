@@ -3,10 +3,10 @@ import { twMerge } from "tailwind-merge"
 import { useAuth } from "@/domains/common/hooks/auth/use-auth"
 
 const BottomContent = () => {
-  const { isLoggedIn } = useAuth()
+  const { user } = useAuth()
 
   return (
-    <div className={twMerge('flex justify-between max-w-[500px] mx-auto', isLoggedIn && 'mb-[74px]')}>
+    <div className={twMerge('flex justify-between max-w-[500px] mx-auto', user && 'mb-[74px]')}>
       <div className='w-full bg-[#232a21] text-white flex flex-col gap-4 px-6 pt-4 pb-6'>
         <p className='font-medium text-lg'>About</p>
         <Link href='/blog'>Blog</Link>

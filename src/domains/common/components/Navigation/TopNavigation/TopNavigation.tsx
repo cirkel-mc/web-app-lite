@@ -1,4 +1,5 @@
-import { useMemo } from 'react'
+'use client'
+import { useMemo, useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faPencil } from '@fortawesome/free-solid-svg-icons'
@@ -6,10 +7,19 @@ import dayjs from 'dayjs'
 import Logo from './Logo'
 import { NavigationProps } from './types'
 import NotificationIcon from './Notification/NotificationIcon/NotificationIcon'
+import Link from 'next/link'
+import { useAuth } from '@/domains/common/hooks/auth/use-auth'
 
-function TopNavigation({ isHome, isExclude, title, isMutation }: NavigationProps) {
+function TopNavigation({
+  isHome,
+  isExclude,
+  title,
+  isMutation,
+}: NavigationProps) {
   const router = useRouter()
   const params = useSearchParams()
+  const { user, isLoggedIn, isPending } = useAuth()
+  const [isMount, setIsMount] = useState(false)
 
   const date = useMemo(() => {
     if (params.get('date'))
@@ -20,11 +30,30 @@ function TopNavigation({ isHome, isExclude, title, isMutation }: NavigationProps
 
   const renderContent = () => {
     if (isExclude) return <div />
+    if (isPending) return
+
     if (isHome) {
       return (
         <div className="flex justify-between items-center px-4 py-4 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
           <Logo />
-          <NotificationIcon count={3} />
+          <>
+            {isLoggedIn && isMount ? (
+              <NotificationIcon count={3} />
+            ) : !isLoggedIn && isMount ? (
+              <div className="flex items-center gap-3">
+                <Link className="font-medium" href="/login">
+                  <div className="bg-white rounded-lg text-primary-30 flex justify-center px-2 py-1">
+                    Login
+                  </div>
+                </Link>
+                <Link className="font-medium" href="/register">
+                  Register
+                </Link>
+              </div>
+            ) : (
+              <div className="rounded-2xl shimmer w-7 h-7" />
+            )}
+          </>
         </div>
       )
     }
@@ -44,11 +73,17 @@ function TopNavigation({ isHome, isExclude, title, isMutation }: NavigationProps
               <span className="inline-block text-sm ml-1">{date}</span>
             </div>
           </div>
-          {isMutation && <FontAwesomeIcon icon={faPencil} className="w-5 h-4" />}
+          {isMutation && (
+            <FontAwesomeIcon icon={faPencil} className="w-5 h-4" />
+          )}
         </div>
       )
     }
   }
+
+  useEffect(() => {
+    setIsMount(true)
+  }, [])
 
   return (
     <div

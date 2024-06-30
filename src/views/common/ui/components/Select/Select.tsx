@@ -59,7 +59,7 @@ function Select(props: SelectProps) {
           'flex flex-nowrap items-center rounded-full w-full  px-4 py-1 box-border border-[1px] shadow-input border-gray-200 bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
           isOpen
             ? 'border-primary-20 !text-black placeholder:text-primary-20'
-            : 'text-[#717171]',
+            : 'text-neutral-400',
           position === 'center' ? 'justify-between' : 'justify-between',
           classes
         )}
@@ -77,7 +77,7 @@ function Select(props: SelectProps) {
           </div>
         )}
         <div className="flex items-center">
-          <p className="font-semibold">
+          <p>
             {customValue
               ? options.filter((item) => item.value === customValue)[0].label
               : placeholder}
@@ -105,9 +105,9 @@ function Select(props: SelectProps) {
           )
         )}
       </div>
-      {isOpen && (
+      {isOpen && options && (
         <div className="z-50 w-full absolute top-[35px] bg-white flex flex-col gap-2 shadow-md border-[1px] border-neutral-40 mt-2 pt-2 rounded-lg max-h-[200px] overflow-auto focus:border-primary-20 cursor-pointer">
-          {options.map((item) => (
+          {options?.map((item) => (
             <p
               key={item.value}
               className={twMerge(

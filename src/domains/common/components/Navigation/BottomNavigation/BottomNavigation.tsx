@@ -21,7 +21,7 @@ interface BottomNavigationProps {
 
 function BottomNavigation({ isExclude }: BottomNavigationProps) {
   const router = useRouter()
-  const { isLoggedIn, isPending } = useAuth()
+  const { user } = useAuth()
   const [isMount, setIsMount] = useState(false)
   const [activeMenu, setActiveMenu] = useState('')
 
@@ -31,23 +31,23 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
   }
 
   const render = useMemo(() => {
-    console.log({ isPending, isMount })
-    if (isPending || !isMount) {
+    if (!isMount) {
       return <Loader />
     }
-    if (!isLoggedIn || isExclude && !isPending && isMount) return <div />
+    if (isExclude) return <div />
+    if (!user || isExclude && isMount) return <div />
     return (
       <div className="w-full bg-white fixed bottom-0 left-0 px-2 py-3 shadow-2xl ">
         <div className="max-w-[500px] mx-auto flex justify-around">
           <Item
-            loading={isPending}
+            loading={!isMount}
             Icon={faHome}
             title="Home"
             isActive={activeMenu === 'Home'}
             onClick={() => handleChangeMenu('Home', '/')}
           />
           <Item
-            loading={isPending}
+            loading={!isMount}
             Icon={faMusic}
             title="Session"
             isActive={activeMenu === 'Session'}
@@ -62,14 +62,14 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
             <span className="text-[12px] text-white">Create</span>
           </div>
           <Item
-            loading={isPending}
+            loading={!isMount}
             Icon={faClockFour}
             title="Order"
             isActive={activeMenu === 'Order'}
             onClick={() => handleChangeMenu('Order', '/orders')}
           />
           <Item
-            loading={isPending}
+            loading={!isMount}
             Icon={faUser}
             title="Profile"
             isActive={activeMenu === 'Profile'}
@@ -78,7 +78,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
         </div>
       </div>
     )
-  }, [isPending, isLoggedIn, isMount])
+  }, [user, isMount, activeMenu])
 
   useEffect(() => {
     setIsMount(true)

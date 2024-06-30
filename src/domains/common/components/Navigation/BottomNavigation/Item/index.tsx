@@ -20,22 +20,22 @@ function BottomNavigationItem(props: BottomNavigationItemProps) {
     >
       {
         loading ? (
-        <div className='flex flex-col items-center gap-2'>
-          <div className='shimmer w-5 h-5 rounded' />
-          <div className='shimmer w-[50px] h-4 rounded' />
-        </div>) : (
+          <div className='flex flex-col items-center gap-2'>
+            <div className='shimmer w-5 h-5 rounded' />
+            <div className='shimmer w-[50px] h-4 rounded' />
+          </div>) : (
           <>
             <FontAwesomeIcon
               icon={Icon}
               className={twMerge(
                 'duration-400 w-4 h-4',
-                isActive ? 'text-primary-40' : 'text-neutral-500',
+                isActive ? '!text-primary-40' : 'text-neutral-500',
               )}
             />
             <span
               className={twMerge(
                 'text-[12px] inline-block mt-1',
-                isActive ? 'text-primary-40' : 'text-neutral-500',
+                isActive ? '!text-primary-40' : 'text-neutral-500',
               )}
             >
               {title}

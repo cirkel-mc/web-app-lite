@@ -2,12 +2,13 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface DateProps {
-  text: string
+  day: string
+  date: string
   isActive?: boolean
   onClick: () => void
 }
 
-function Date({ text, isActive, onClick }: DateProps) {
+function Date({ day, date, isActive, onClick }: DateProps) {
   return (
     <div
       className={twMerge(
@@ -16,8 +17,8 @@ function Date({ text, isActive, onClick }: DateProps) {
       )}
       onClick={onClick}
     >
-      <p className='text-xs text-center mb-0'>Mon</p>
-      <p className='text-sm text-center mb-0'>31/5/2023</p>
+      <p className='text-xs text-center mb-0'>{day}</p>
+      <p className='text-sm text-center mb-0'>{date}</p>
     </div>
   )
 }

@@ -18,12 +18,12 @@ interface MenuProps {
 
 function Menu(props: MenuProps) {
   const { show, onClose } = props
-  const { isLoggedIn } = useAuth()
+  const { user } = useAuth()
   const { logout } = useLogout()
 
   return (
     <BottomSheet title="My Menu" open={show} onClose={onClose}>
-      {!isLoggedIn && (
+      {!user && (
         <div className="flex gap-4">
           <Link href="/login" className="w-full">
             <Button variant="primary" size="md" round="md" classes="w-full">
@@ -70,7 +70,7 @@ function Menu(props: MenuProps) {
           <FontAwesomeIcon icon={faPhone} className="w-4" />
           Contact Us
         </Link>
-        {isLoggedIn && (
+        {user && (
           <>
             <div className="h-[2px] w-full bg-gray-100 -mt-1 -mb-1" />
             <Button size="md" round="md" variant="secondary" onClick={logout}>
