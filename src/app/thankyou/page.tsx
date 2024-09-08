@@ -2,25 +2,21 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Lottie from 'lottie-react';
+import AnimationData from '@/views/common/assets/Success-Booking-Animation.json';
+import Button from '@/views/common/ui/components/Button';
 
-import IconSuccess from '@/domains/common/components/Icons/CheckFill'
 
 function Thankyou() {
   const router = useRouter()
   return (
-    <div className="flex flex-col justify-center items-center h-[100vh] shadow-2xl px-6 box-border">
-      <IconSuccess className="fill-amber-300 w-[180px] h-[180px]" />
-      <p className="text-2xl font-bold mt-4">Thank you for your order</p>
-      <p className="mt-2 text-lg text-center">
-        Please wait while admin venue confirmed your order{' '}
+    <div className="flex flex-col justify-center items-center max-w-[500px] mx-auto h-[100vh] px-6 box-border">
+      <Lottie animationData={AnimationData} className='max-h-[400px]' size={40} loop />
+      <p className="text-2xl font-bold mt-4 text-neutral-900">Thank you for your order</p>
+      <p className="mt-2 text-base text-center text-neutral-900">
+        Please wait while admin venue confirmed your order. See you on your venue !
       </p>
-      <button
-        className="text-white text-lg rounded-lg fixed left-8 bottom-6 py-3 bg-primary-600 w-full"
-        onClick={() => router.push('/')}
-        style={{ width: 'calc(100% - 64px)' }}
-      >
-        See Your Bookings
-      </button>
+      <Button variant='secondary' size='md' round='2xl' classes='w-fit mx-auto mt-4 rounded-xl' onClick={() => router.push('/orders')}>See your bookings</Button>
     </div>
   )
 }

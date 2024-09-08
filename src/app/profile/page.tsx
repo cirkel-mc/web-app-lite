@@ -4,15 +4,14 @@ import { useRouter } from "next/navigation"
 import ProfileOverview from "@/views/profile/components/ProfileOverview"
 import Tabs from "@/views/common/ui/components/Tabs"
 import { TAB_ITEMS } from "@/domains/profile/constants/tab-list"
+import { cookie } from "@/domains/common/utils/cookie/cookie"
 
 export default function ProfilePage() {
   const router = useRouter()
 
   const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      window.localStorage.removeItem('user')
-      router.push('/login')
-    }
+    cookie.remove('user');
+    router.push('/login')
   }
 
   return (

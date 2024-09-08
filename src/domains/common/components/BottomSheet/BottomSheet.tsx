@@ -23,7 +23,7 @@ function BottomSheet(props: BottomSheetProps) {
     <>
       {open && (
         <div
-          className="transition-all duration-500 ease-out fixed top-0 left-0 w-full h-[100%] z-40"
+          className="transition-all duration-500 ease-out fixed top-0 left-0 w-full h-[100%] z-50"
           style={{ backgroundColor: 'rgba(0,0,0, 0.5)' }}
           onClick={onClose}
         />

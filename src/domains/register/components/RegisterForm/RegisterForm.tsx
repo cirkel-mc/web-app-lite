@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-// import { useGeolocation } from '@/domains/common/hooks/geolocation/useGeolocation'
+import { useGeolocation } from '@/domains/common/hooks/geolocation/useGeolocation'
 import { useRegister } from '@/domains/register/query/use-register'
 import { useCities } from '@/domains/cities/query/useCities'
 import Select from '@/views/common/ui/components/Select'
@@ -24,9 +24,6 @@ const RegisterForm = () => {
   const {
     mutate,
     data: result,
-    isSuccess,
-    isError,
-    failureReason,
   } = useRegister()
   const { data: city } = useCities()
 
@@ -42,16 +39,20 @@ const RegisterForm = () => {
   })
   const { register, handleSubmit, getValues, formState, setValue } = form
   const { errors } = formState
+  const { location } = useGeolocation(); console.log(location)
 
   const onSubmit = (data: RegisterFormPayload) => {
+    console.log(data)
     mutate({
       username: data.username,
       email: data.email,
       password: data.password,
       city_id: data.city,
+      lat: location?.latitude ?? 0,
+      long: location?.longitude ?? 0,
     })
 
-    if (isSuccess) {
+    if (result?.code === 200) {
       cookie.set('user', {
         email: data.email,
         username: data.username,
@@ -66,14 +67,14 @@ const RegisterForm = () => {
 
   return (
     <div>
-      {isSuccess && (
+      {result?.code === 200 && (
         <Alert variant="success">
           <p>Please login with registered account</p>
         </Alert>
       )}
-      {isError && (
+      {result?.error_message && (
         <Alert variant="error">
-          <p>{failureReason?.message}</p>
+          <p>{result.error_message}</p>
         </Alert>
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -88,7 +89,7 @@ const RegisterForm = () => {
             }}
             value={getValues('email')}
           />
-          <div className="mt-2">
+          <div className="mt-4">
             {errors.email && (
               <ErrorMessage>{errors?.email?.message}</ErrorMessage>
             )}
@@ -105,7 +106,7 @@ const RegisterForm = () => {
             }}
             value={getValues('username')}
           />
-          <div className="mt-2">
+          <div className="mt-4">
             {errors.username && (
               <ErrorMessage>{errors?.username?.message}</ErrorMessage>
             )}
@@ -127,7 +128,7 @@ const RegisterForm = () => {
             }}
             value={getValues('password')}
           />
-          <div className="mt-2">
+          <div className="mt-4">
             {errors.password && (
               <ErrorMessage>{errors?.password?.message}</ErrorMessage>
             )}

@@ -6,43 +6,50 @@ import {
   faCalendar,
   faClockFour,
 } from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
+import PlaceholderImage from '@/views/common/assets/placeholder-studio.png'
 
 function Card() {
   return (
-    <div className="flex flex-col items-center bg-white rounded-xl p-5 shadow-lg min-w-[260px]">
-      <p className="text-2xl font-semibold mb-1">Session_Name</p>
-      <div className="flex justify-center gap-3 text-sm">
-        <div className="flex gap-1 items-center">
-          <FontAwesomeIcon
-            icon={faPerson}
-            className="text-primary-30 w-4 h-4"
-          />
-          <span className="text-sm">3</span>
+    <div className="flex gap-4 bg-white rounded-xl p-3 shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+      <div className='w-[calc(100%-130px-16px)] flex flex-col items-center'>
+        <p className="text-xl font-semibold mb-4">Session_Name</p>
+        <div className="flex flex-wrap justify-center gap-2 text-sm">
+          <div className="flex gap-1 items-center">
+            <FontAwesomeIcon
+              icon={faPerson}
+              className="text-primary-30 w-4 h-4"
+            />
+            <span className="text-sm">3</span>
+          </div>
+          <div className="flex gap-1 items-center">
+            <FontAwesomeIcon
+              icon={faCalendar}
+              className="text-primary-30 w-4 h-4"
+            />
+            <span className="text-sm">dd/mm/yy</span>
+          </div>
+          <div className="flex gap-1 items-center">
+            <FontAwesomeIcon
+              icon={faClockFour}
+              className="text-primary-30 w-4 h-4"
+            />
+            <span className="text-sm">[n] hour</span>
+          </div>
         </div>
-        <div className="flex gap-1 items-center">
-          <FontAwesomeIcon
-            icon={faCalendar}
-            className="text-primary-30 w-4 h-4"
-          />
-          <span className="text-sm">dd/mm/yy</span>
-        </div>
-        <div className="flex gap-1 items-center">
-          <FontAwesomeIcon
-            icon={faClockFour}
-            className="text-primary-30 w-4 h-4"
-          />
-          <span className="text-sm">[n] hour</span>
-        </div>
+        <p className="text-neutral-500 text-center mt-3 mb-3">Jakarta, Menteng Dalam</p>
+        <Button
+          size="sm"
+          round="sm"
+          classes="text-base font-normal mt-2"
+          variant="primary"
+        >
+          Join
+        </Button>
       </div>
-      <p className="text-neutral-500 text-center mt-1">@user_name</p>
-      <Button
-        size="sm"
-        round="sm"
-        classes="text-base font-normal lg:font-semibold lg:text-[18px] lg:p-[10px] mt-2"
-        variant="primary"
-      >
-        Join
-      </Button>
+      <div className='relative w-[130px] h-full rounded-xl'>
+        <Image src={PlaceholderImage} alt='' fill className='rounded-xl' />
+      </div>
     </div>
   )
 }

@@ -38,6 +38,7 @@ const CardCarousel: FC<CardCarouselProps> = (props) => {
           <Card
             key={index}
             src={item.image}
+            address={item.address}
             title={item.title}
             price={item.price}
             onClick={() => handleRedirect(item.id)}

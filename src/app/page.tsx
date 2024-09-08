@@ -1,31 +1,102 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import Image from 'next/image'
+
+import Button from '@/views/common/ui/components/Button'
+import BottomContent from '@/domains/home/components/BottomContent'
+import BottomSheet from '@/domains/common/components/BottomSheet'
 import HomeFilter from '@/domains/common/components/HomeFilter'
 import CardCarousel from '@/domains/common/components/CardCarousel'
 import AvatarCarousel from '@/domains/common/components/AvatarCarousel'
 import NearMeCarousel from '@/domains/home/components/NearMeCarousel'
-import ActiveSession from '@/domains/home/components/ActiveSession'
 import Loader from '@/domains/home/components/ActiveSession/Loader'
+import SessionCarousel from '@/domains/common/components/SessionCarousel'
 
 import { useAuth } from '@/domains/common/hooks/auth/use-auth'
 import { cardCarouselData } from '@/models/common/mock-data/card-carousel-data'
 import { avatarCarouselData } from '@/models/common/mock-data/avatar-carousel-data'
-import BottomContent from '@/domains/home/components/BottomContent'
+
+import CasualImage from '@/views/common/assets/Casual.png'
+
+interface UserChoice {
+  outcome: 'accepted' | 'dismissed'
+}
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => void
+  userChoice: Promise<UserChoice>
+}
 
 function Home() {
   const { user } = useAuth()
   const [isMount, setIsMount] = useState(false)
+  const [deferredPrompt, setDefferedPrompt] = useState<any>(null)
+
+  const isMobile = useMemo(() => {
+    const toMatch = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /Windows Phone/i
+    ];
+
+    if (isMount) {
+      return toMatch.some((toMatchItem) => {
+        return window.navigator.userAgent.match(toMatchItem);
+      });
+    }
+  }, [isMount])
+  const [showInstallButton, setShowInstallButton] = useState(isMobile ?? false);
+
+  const handler = (e: Event) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault()
+    // Stash the event so it can be triggered later.
+    // @ts-ignore
+    setDefferedPrompt(e as BeforeInstallPromptEvent)
+    // Update UI notify the user they can install the PWA
+    setShowInstallButton(true)
+  }
+
+  const handleInstall = async () => {
+    console.log(deferredPrompt)
+    deferredPrompt.prompt()
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice
+    // Optionally, send analytics event with outcome of user choice
+    console.info(`User response to the install prompt: ${outcome}`)
+    // We've used the prompt, and can't use it again, throw it away
+    setDefferedPrompt(null)
+  }
 
   const renderActiveSession = () => {
     if (!isMount) return <Loader />
     if (!user && isMount) return <div />
 
-    return <ActiveSession />
+    return (
+      <div className="overflow-hidden">
+        <p className="text-2xl font-semibold mb-2">Active Session</p>
+        <SessionCarousel />
+      </div>
+    )
   }
 
   useEffect(() => {
     setIsMount(true)
   }, [])
+
+  useEffect(() => {
+    if (isMount && !showInstallButton && typeof window !== 'undefined') {
+      if (isMobile) window.addEventListener('beforeinstallprompt', handler)
+    }
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler)
+    }
+  }, [showInstallButton, isMount, isMobile])
 
   return (
     <>
@@ -39,6 +110,13 @@ function Home() {
         </div>
       </div>
       <BottomContent />
+      <BottomSheet title='Install App' open={showInstallButton} onClose={() => setShowInstallButton(false)}>
+        <div className='flex flex-col justify-center items-center'>
+          <Image src={CasualImage} width={200} height={180} className='mb-2' alt='casual image' />
+          <p className='text-neutral-900 text-center w-4/5 mb-6 font-thin'><span className='font-bold'>Keep in touch</span> with your cirkel. Wanna install the apps?</p>
+          <Button size="md" round="md" variant="secondary" block onClick={handleInstall}>Install</Button>
+        </div>
+      </BottomSheet>
     </>
   )
 }

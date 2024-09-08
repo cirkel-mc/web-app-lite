@@ -1,15 +1,13 @@
 import React from 'react'
 
 import Bill from './components/Bill'
-import Header from './components/Header/Header'
 import Description from './components/Description'
 import PaymentMethod from './components/PaymentMethod/PaymentMethod'
 import PayCTA from './components/PayCTA'
 
 function Payment() {
   return (
-    <div className="px-4">
-      <Header />
+    <div className="px-4 pt-[80px] max-w-[500px] mx-auto">
       <Description />
       <PaymentMethod />
       <Bill />

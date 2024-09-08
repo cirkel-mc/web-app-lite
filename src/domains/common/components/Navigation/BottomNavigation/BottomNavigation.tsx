@@ -78,7 +78,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
         </div>
       </div>
     )
-  }, [user, isMount, activeMenu])
+  }, [user, isMount, isExclude, activeMenu])
 
   useEffect(() => {
     setIsMount(true)

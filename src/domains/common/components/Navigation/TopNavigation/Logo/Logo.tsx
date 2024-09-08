@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import LogoCirkel from '@/views/common/assets/Union.png'
+import CirkelLogo from '@/views/common/assets/Cirkel-New-Logo.png'
 
 function Logo() {
   return (
     <Link href="/">
-      <Image src={LogoCirkel} alt="" height={40} />
+      <Image src={CirkelLogo} alt="" height={48} />
     </Link>
   )
 }

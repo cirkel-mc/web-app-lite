@@ -54,7 +54,7 @@ const Alert = ({ variant, children }: AlertProps) => {
       className={twMerge(
         ' transition-all w-[80%] duration-500 fixed -top-[999px] left-1/2 -translate-x-1/2 flex items-center gap-4 px-4 py-2 shadow-2xl bg-white text-white rounded z-50',
         getVariant(),
-        active && 'top-[0px]',
+        active && 'top-[-20px]',
       )}
     >
       {getIcon()}

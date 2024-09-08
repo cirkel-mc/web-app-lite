@@ -16,11 +16,13 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   disabled?: boolean
   round: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '' | 'full'
   variant: 'primary' | 'secondary' | 'ghost'
+  block?: boolean
   onClick?: () => void
 }
 
 function Button(props: ButtonProps) {
   const {
+    block = true,
     children,
     classes,
     disabled,
@@ -63,7 +65,8 @@ function Button(props: ButtonProps) {
   }
 
   const mergedClass = twMerge(
-    'text-white font-medium text-base !rounded-lg hover:opacity-90',
+    'text-white font-medium text-base !rounded-lg hover:opacity-90 cursor-pointer',
+    block ? 'w-full' : '',
     switchVariant(variant),
     switchSize(size),
     `rounded-${round}`,

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Title from '../../domains/register/components/Title'
 import Subtitle from '../../domains/register/components/Subtitle'
 import Banner from '../../domains/register/components/Banner'
-import ThirdPartyLogin from '../../domains/register/components/ThirdPartyLogin'
 import Divider from '../../domains/register/components/Divider'
 import RegisterForm from '@/domains/register/components/RegisterForm'
 
@@ -16,10 +15,10 @@ function RegisterPage() {
           <Subtitle />
           <RegisterForm />
           <Divider />
-          <ThirdPartyLogin
+          {/* <ThirdPartyLogin
             href=""
             text="Sign up with Google"
-          />
+          /> */}
           <p className="text-xs mt-6 text-center">
             Already have account?{' '}
             <Link href="/login" className="text-primary-500">
