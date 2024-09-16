@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react'
-import Image from 'next/image'
+import Lottie from 'lottie-react'
 
 import Button from '@/views/common/ui/components/Button'
 import BottomContent from '@/domains/home/components/BottomContent'
@@ -15,8 +15,8 @@ import SessionCarousel from '@/domains/common/components/SessionCarousel'
 import { useAuth } from '@/domains/common/hooks/auth/use-auth'
 import { cardCarouselData } from '@/models/common/mock-data/card-carousel-data'
 import { avatarCarouselData } from '@/models/common/mock-data/avatar-carousel-data'
+import InstallAppsAnimation from '@/views/common/assets/Install-Apps-Animation.json'
 
-import CasualImage from '@/views/common/assets/Casual.png'
 
 interface UserChoice {
   outcome: 'accepted' | 'dismissed'
@@ -70,6 +70,7 @@ function Home() {
     console.info(`User response to the install prompt: ${outcome}`)
     // We've used the prompt, and can't use it again, throw it away
     setDefferedPrompt(null)
+    setShowInstallButton(false)
   }
 
   const renderActiveSession = () => {
@@ -112,9 +113,12 @@ function Home() {
       <BottomContent />
       <BottomSheet title='Install App' open={showInstallButton} onClose={() => setShowInstallButton(false)}>
         <div className='flex flex-col justify-center items-center'>
-          <Image src={CasualImage} width={200} height={180} className='mb-2' alt='casual image' />
+          <Lottie animationData={InstallAppsAnimation} className='h-[200px]' loop />
           <p className='text-neutral-900 text-center w-4/5 mb-6 font-thin'><span className='font-bold'>Keep in touch</span> with your cirkel. Wanna install the apps?</p>
-          <Button size="md" round="md" variant="secondary" block onClick={handleInstall}>Install</Button>
+          <div className='flex gap-4 w-full'>
+            <Button size="md" round="md" variant="ghost" classes='border-none shadow-[0px_0px_10px_rgba(0,0,0,0.25)]' block onClick={() => setShowInstallButton(false)}>Stay in browser</Button>
+            <Button size="md" round="md" variant="secondary" block onClick={handleInstall}>Install PWA</Button>
+          </div>
         </div>
       </BottomSheet>
     </>

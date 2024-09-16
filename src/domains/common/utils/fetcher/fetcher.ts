@@ -8,7 +8,7 @@ export const fetcher = async (url: string, options: any) => {
         'x-app-version': '1.0.0',
         'x-timestamp': String(new Date()),
         'x-channel': 'WA',
-        'x-device-id': window?.navigator?.userAgent,
+        'x-device-id': 'apidog',
         'x-lat': options.lat,
         'x-long': options.long,
         Authorization: options.requestType === 'Basic' ? `Basic ${window.btoa(`${process.env.NEXT_PUBLIC_BASIC_USER}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`)}` : '',

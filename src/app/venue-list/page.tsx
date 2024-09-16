@@ -1,15 +1,25 @@
 'use client'
 
-import FilterItem from '@/domains/common/components/FilterItem/FilterItem'
-import { faFilter, faSort } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
+import BottomSheet from '@/domains/common/components/BottomSheet'
 import VenueList from '@/domains/venue-list/components/VenueList'
 import MobileLayout from '@/views/common/ui/components/Layout/MobileLayout'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faList
+} from '@fortawesome/free-solid-svg-icons'
 
 const VenueListPage = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <MobileLayout>
-      <div className="mt-2 p-[10px] box-border">
-        <div className="flex gap-2">
+      <div className="mt-4 p-[10px] box-border">
+        <div className='rounded-xl shadow-input w-fit py-1 px-4 border-[1px] border-gray-200' onClick={() => setOpen(true)}>
+          <FontAwesomeIcon icon={faList} className='w-4 h-4 mr-2' />
+          <span className='text-neutral-600'>Filter</span>
+        </div>
+        {/* <div className="flex gap-2">
           <FilterItem
             icon={faFilter}
             label="Filter"
@@ -22,9 +32,12 @@ const VenueListPage = () => {
             isActive
             onClick={() => null}
           />
-        </div>
+        </div> */}
         <VenueList />
       </div>
+      <BottomSheet title="Filter" open={open} onClose={() => setOpen(false)}>
+        <p>Filter ceritanya</p>
+      </BottomSheet>
     </MobileLayout>
   )
 }

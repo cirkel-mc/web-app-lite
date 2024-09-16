@@ -56,7 +56,7 @@ function Select(props: SelectProps) {
     <div className={twMerge("relative", containerClass)} ref={selectRef}>
       <div
         className={twMerge(
-          'flex flex-nowrap items-center rounded-full w-full  px-4 py-1 box-border border-[1px] shadow-input border-gray-200 bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
+          'flex flex-nowrap items-center rounded-lg w-full  px-4 py-1 box-border border-[1px] shadow-input border-gray-200 bg-white lg:h-8 hover:border-primary-20 focus:border-primary-20 cursor-pointer',
           isOpen
             ? 'border-primary-20 !text-black placeholder:text-primary-20'
             : 'text-neutral-400',

@@ -42,7 +42,6 @@ const RegisterForm = () => {
   const { location } = useGeolocation(); console.log(location)
 
   const onSubmit = (data: RegisterFormPayload) => {
-    console.log(data)
     mutate({
       username: data.username,
       email: data.email,
@@ -136,7 +135,7 @@ const RegisterForm = () => {
         </div>
 
         <div className="w-full">
-          <p className="text-sm mb-1">City:</p>
+          <p className="text-sm mb-1 text-white">City:</p>
           {city && (
             <Select
               options={
@@ -159,10 +158,10 @@ const RegisterForm = () => {
           disabled={!!errors.email || !!errors.password || !!errors.username}
           size="sm"
           round="md"
-          variant="primary"
+          variant="secondary"
           btnType="fill"
           type="submit"
-          classes="w-full mt-6 text-sm py-2"
+          classes="w-full mt-[60px] text-sm py-2"
         >
           Sign up
         </Button>

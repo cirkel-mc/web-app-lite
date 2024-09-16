@@ -51,7 +51,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
             Icon={faMusic}
             title="Session"
             isActive={activeMenu === 'Session'}
-            onClick={() => handleChangeMenu('Session', '/session-list')}
+            onClick={() => handleChangeMenu('Session', '/sessions')}
           />
           <div
             role="button"

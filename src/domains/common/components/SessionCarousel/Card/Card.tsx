@@ -8,10 +8,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import PlaceholderImage from '@/views/common/assets/placeholder-studio.png'
+import { useRouter } from 'next/navigation'
 
 function Card() {
+  const router = useRouter()
+
   return (
-    <div className="flex gap-4 bg-white rounded-xl p-3 shadow-[0px_0px_10px_rgba(0,0,0,0.25)]">
+    <div className="flex gap-4 bg-white rounded-xl p-3 shadow-[0px_0px_10px_rgba(0,0,0,0.25)]" onClick={() => router.push('/session/1')}>
       <div className='w-[calc(100%-130px-16px)] flex flex-col items-center'>
         <p className="text-xl font-semibold mb-4">Session_Name</p>
         <div className="flex flex-wrap justify-center gap-2 text-sm">

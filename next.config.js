@@ -6,7 +6,7 @@ module.exports = withPWA({
     appDir: true,
     missingSuspenseWithCSRBailout: false,
     serverActions: {
-      allowedOrigins: ['localhost', '*.cirkel.id'],
+      allowedOrigins: ['localhost', '*.cirkel.id', ],
     },
   },
   images: {
@@ -16,6 +16,7 @@ module.exports = withPWA({
         hostname: '**',
       },
     ],
+    domains: ['https://2.bp.blogspot.com'],
   },
   rewrites() {
     return [

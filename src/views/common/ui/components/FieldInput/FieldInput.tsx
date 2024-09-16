@@ -10,7 +10,7 @@ interface FieldProps extends InputProps {
 function Field({ label, containerClass, value, ...rest }: FieldProps) {
   return (
     <div className={containerClass}>
-      <p className="mb-2">{label}</p>
+      <p className="mb-2 text-white">{label}</p>
       <Input value={value} {...rest} />
     </div>
   )

@@ -24,7 +24,7 @@ function ToggleItem({
         'rounded-lg p-2.5 box-border flex flex-col gap-2 items-center cursor-pointer',
         selected === label
           ? ' bg-primary-10 text-white'
-          : 'text-neutral-900 bg-white border-[1px] border-neutral-900',
+          : 'text-gray-600 bg-white border-[1px] shadow-md',
         className,
       )}
       onClick={() => onClick(label)}

@@ -30,6 +30,7 @@ function TopNavigation({
   }, [params])
 
   const renderContent = useMemo(() => {
+    console.log(isExclude)
     if (isExclude) return <div />
     if (!mount && isHome) {
       return (
@@ -44,7 +45,7 @@ function TopNavigation({
       return (
         <div className="flex justify-between items-center px-4 py-2 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
           <Logo />
-          <NotificationIcon count={3} />
+          <NotificationIcon count={3} onClick={() => router.push('/notification')} />
         </div>
       )
     }
@@ -81,7 +82,7 @@ function TopNavigation({
             </div>
             <div className="flex flex-col">
               <span className="inline-block text-2xl">{title}</span>
-              <span className="inline-block text-sm ml-1">{date}</span>
+              <span className="inline-block text-sm ml-1 text-orange-400">{date}</span>
             </div>
           </div>
           {isMutation && (
@@ -90,7 +91,7 @@ function TopNavigation({
         </div>
       )
     }
-  }, [isExclude, mount, isHome])
+  }, [isExclude, router, mount, isHome])
 
   useEffect(() => {
     setMount(true)

@@ -1,12 +1,16 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faPerson, faCopy } from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
+import PlaceholderImage from '@/views/common/assets/placeholder-studio.png'
 import Loader from './Loader'
 import { useInView } from 'react-intersection-observer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapLocation } from '@fortawesome/free-solid-svg-icons'
+import { useRouter } from 'next/navigation'
 
 const SessionCard = () => {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
   const {
     ref,
@@ -21,35 +25,26 @@ const SessionCard = () => {
   }, [])
 
   return v || mounted ? (
-    <div className="border-primary-10 border-[1px] flex relative" ref={ref}>
-      <div className="p-2 bg-primary-10 max-w-[90px]">
-        <p>MM/DD</p>
-        <p>HH:MM</p>
+    <div className=" border-gray-100 border-[1px] rounded-xl shadow-sm relative" ref={ref} onClick={() => router.push('/session/1')}>
+      <div className='w-full h-[150px] relative'>
+        <Image src={PlaceholderImage} alt='' fill className='rounded-t-lg object-cover' />
       </div>
-      <div className="p-2 flex flex-col gap-1 relative">
-        <p>Session_Title</p>
-        <div className="flex gap-2">
-          <div className="flex gap-[2px] items-center">
-            <FontAwesomeIcon
-              icon={faPerson}
-              className="w-4 h-4 text-primary-10"
-            />
-            <span className="text-sm">3</span>
-          </div>
-          <div className="flex gap-1 items-center">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="w-3 h-3 text-primary-10"
-            />
-            <span className="text-sm">User_Name</span>
-          </div>
+      <div className='pt-2 pb-4 px-4'>
+        <div className='flex justify-between text-gray-400'>
+          <p>2 slots available</p>
+          <p>23 Oct 2024 17.00 WIB</p>
         </div>
+        <div className='flex gap-1 mt-2'>
+          <p className='font-semibold'>Funk in the City</p>
+          <span>by</span>
+          <p className='text-gray-500'>Funky Kopral</p>
+        </div>
+        <p className='text-gray-500 my-4'>Currently we are looking for Bassist with Jazzy Groove to </p>
+        <p className='text-gray-500 flex gap-2'>
+          <a href="https://www.google.com/maps/dir//-6.245715439710789, 106.7893879997882" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faMapLocation} className='w-4 h-4 text-orange-500 cursor-pointer' /></a>
+          Jakarta, Kemang @Abbe Studio
+        </p>
       </div>
-      <FontAwesomeIcon
-        icon={faCopy}
-        className="w-4 h-4 text-primary-10 absolute top-2 right-2"
-        onClick={() => console.log('copied')}
-      />
     </div>
   ) : (
     <Loader />
