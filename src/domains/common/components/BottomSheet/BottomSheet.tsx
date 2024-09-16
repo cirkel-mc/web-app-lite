@@ -23,14 +23,14 @@ function BottomSheet(props: BottomSheetProps) {
     <>
       {open && (
         <div
-          className="transition-all duration-500 ease-out fixed top-0 left-0 w-full h-[100%] z-40"
+          className="transition-all duration-100 ease-out fixed top-0 left-0 w-full h-[100%] z-50"
           style={{ backgroundColor: 'rgba(0,0,0, 0.5)' }}
           onClick={onClose}
         />
       )}
       <div
         className={twMerge(
-          'transition-transform duration-200 ease-out w-full bg-white shadow-lg px-4 py-4 rounded-t-2xl',
+          'transition-transform duration-500 ease-out w-full bg-white shadow-lg px-4 py-4 rounded-t-2xl',
           open && loaded
             ? 'transform: translate-y-0'
             : 'transform: translate-y-[100%]',

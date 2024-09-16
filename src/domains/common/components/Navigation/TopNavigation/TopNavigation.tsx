@@ -1,4 +1,5 @@
 'use client'
+
 import { useMemo, useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,8 +19,8 @@ function TopNavigation({
 }: NavigationProps) {
   const router = useRouter()
   const params = useSearchParams()
-  const { user, isLoggedIn, isPending } = useAuth()
-  const [isMount, setIsMount] = useState(false)
+  const { user } = useAuth()
+  const [mount, setMount] = useState(false);
 
   const date = useMemo(() => {
     if (params.get('date'))
@@ -28,35 +29,46 @@ function TopNavigation({
     return ''
   }, [params])
 
-  const renderContent = () => {
+  const renderContent = useMemo(() => {
+    console.log(isExclude)
     if (isExclude) return <div />
-    if (isPending) return
-
-    if (isHome) {
+    if (!mount && isHome) {
       return (
-        <div className="flex justify-between items-center px-4 py-4 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
+        <div className='bg-primary-30 w-full h-[72px] flex justify-between items-center p-4'>
           <Logo />
-          <>
-            {isLoggedIn && isMount ? (
-              <NotificationIcon count={3} />
-            ) : !isLoggedIn && isMount ? (
-              <div className="flex items-center gap-3">
-                <Link className="font-medium" href="/login">
-                  <div className="bg-white rounded-lg text-primary-30 flex justify-center px-2 py-1">
-                    Login
-                  </div>
-                </Link>
-                <Link className="font-medium" href="/register">
-                  Register
-                </Link>
-              </div>
-            ) : (
-              <div className="rounded-2xl shimmer w-7 h-7" />
-            )}
-          </>
+          <div className='shimmer h-9 w-9 rounded-full' />
         </div>
       )
     }
+
+    if (isHome && user && mount) {
+      return (
+        <div className="flex justify-between items-center px-4 py-2 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
+          <Logo />
+          <NotificationIcon count={3} onClick={() => router.push('/notification')} />
+        </div>
+      )
+    }
+
+    if (isHome && !user && mount) {
+      return (
+        <div className="flex justify-between items-center px-4 py-4 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
+          <Logo />
+
+          <div className="flex items-center gap-3">
+            <Link className="font-medium" href="/login">
+              <div className="bg-white rounded-lg text-primary-30 flex justify-center px-2 py-1">
+                Login
+              </div>
+            </Link>
+            <Link className="font-medium" href="/register">
+              Register
+            </Link>
+          </div>
+        </div>
+      )
+    }
+
     if (!isExclude && !isHome) {
       return (
         <div className="flex justify-between items-center px-4 py-4 max-w-[500px] md:max-w-[700px] lg:max-w-[1024px] ml-auto mr-auto">
@@ -70,7 +82,7 @@ function TopNavigation({
             </div>
             <div className="flex flex-col">
               <span className="inline-block text-2xl">{title}</span>
-              <span className="inline-block text-sm ml-1">{date}</span>
+              <span className="inline-block text-sm ml-1 text-orange-400">{date}</span>
             </div>
           </div>
           {isMutation && (
@@ -79,10 +91,10 @@ function TopNavigation({
         </div>
       )
     }
-  }
+  }, [isExclude, router, mount, isHome])
 
   useEffect(() => {
-    setIsMount(true)
+    setMount(true)
   }, [])
 
   return (
@@ -93,7 +105,7 @@ function TopNavigation({
           '0 3px 5px 0 rgba(0,0,0,.05), 0 1px 18px 0 rgba(0,0,0,.05), 0 6px 10px 0 rgba(0,0,0,.05)',
       }}
     >
-      <div className="max-w-[500px] mx-auto">{renderContent()}</div>
+      <div className="max-w-[500px] mx-auto">{renderContent}</div>
     </div>
   )
 }

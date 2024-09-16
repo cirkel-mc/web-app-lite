@@ -1,9 +1,14 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+const path = require('path');
+const { withPWA } = require('./workbox.config');
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = withPWA({
+  experimental: {
+    appDir: true,
+    missingSuspenseWithCSRBailout: false,
+    serverActions: {
+      allowedOrigins: ['localhost', '*.cirkel.id', ],
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -11,6 +16,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
+    domains: ['https://2.bp.blogspot.com'],
   },
   rewrites() {
     return [
@@ -20,36 +26,24 @@ const nextConfig = {
       },
     ];
   },
-}
-
-module.exports = {
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg'),
-    )
+    const registerJs = path.join(path.dirname(require.resolve("next-pwa")), "register.js");
+    const entry = config.entry;
 
-    config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
-      },
-      // Convert all other *.svg imports to React components
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: /url/ }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
-      },
-    )
+    config.entry = () =>
+        entry().then((entries) => {
+            // Automatically registers the SW and enables certain `next-pwa` features in 
+            // App Router (https://github.com/shadowwalker/next-pwa/pull/427)
+            if (entries["main-app"] && !entries["main-app"].includes(registerJs)) {
+                if (Array.isArray(entries["main-app"])) {
+                    entries["main-app"].unshift(registerJs);
+                } else if (typeof entries["main-app"] === "string") {
+                    entries["main-app"] = [registerJs, entries["main-app"]];
+                }
+            }
+            return entries;
+        });
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i
-
-    return config
+    return config;
   },
-
-  ...withBundleAnalyzer(nextConfig),
-}
+});

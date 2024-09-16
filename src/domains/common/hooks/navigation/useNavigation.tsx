@@ -8,11 +8,13 @@ import {
 export default function useNavigation() {
   const path = usePathname()
   const isHome = path === '/'
-  const isExclude = EXCLUDE_TOPNAV_ROUTES.some((item) => item === path)
+  const isExclude = EXCLUDE_TOPNAV_ROUTES.some((item) => item === path || path.startsWith(item))
   const isExcludeBottom = EXCLUDE_BOTTOMNAV_ROUTES.some(
     (item) => item === path || path.startsWith(item),
   )
   const isMutation = INCLUDE_MUTATION_ROUTES.some((item) => item === path)
+
+  console.log(isExclude)
 
   const generateTitle = () => {
     const paths = path.split('/').slice(1)

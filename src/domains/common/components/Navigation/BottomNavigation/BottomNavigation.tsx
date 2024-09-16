@@ -51,7 +51,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
             Icon={faMusic}
             title="Session"
             isActive={activeMenu === 'Session'}
-            onClick={() => handleChangeMenu('Session', '/session-list')}
+            onClick={() => handleChangeMenu('Session', '/sessions')}
           />
           <div
             role="button"
@@ -78,7 +78,7 @@ function BottomNavigation({ isExclude }: BottomNavigationProps) {
         </div>
       </div>
     )
-  }, [user, isMount, activeMenu])
+  }, [user, isMount, isExclude, activeMenu])
 
   useEffect(() => {
     setIsMount(true)

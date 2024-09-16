@@ -17,7 +17,7 @@ const BottomSheetCalendar: FC<CalendarProps> = ({
   onChange,
 }) => (
   <BottomSheet title="Date" open={open} onClose={onClose}>
-    <div className="max-w-[500px] mx-auto overflow-auto h-[400px]">
+    <div className="max-w-[500px] mx-auto overflow-auto">
       <Calendar open={open} onClose={onClose} onSubmit={onChange} />
     </div>
   </BottomSheet>

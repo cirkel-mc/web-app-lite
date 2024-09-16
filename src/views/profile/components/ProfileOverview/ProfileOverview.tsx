@@ -26,7 +26,7 @@ const ProfileOverview = ({
 }: ProfileOverviewProps) => {
   return (
     <div className="relative border-neutral-20 border-[1px] p-4 rounded-lg">
-      {handleLogout && <Button classes='absolute right-4 top-4' size='sm' round='sm' variant='primary' onClick={handleLogout}>Logout</Button>}
+      {handleLogout && <Button classes='absolute right-4 top-4 w-fit' size='sm' round='sm' variant='primary' onClick={handleLogout}>Logout</Button>}
       <div className="flex gap-[36px]">
         <div className="min-w-[108px] mt-3.5">
           <Image

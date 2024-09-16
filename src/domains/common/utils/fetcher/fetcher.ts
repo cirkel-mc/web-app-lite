@@ -1,15 +1,16 @@
-
 export const fetcher = async (url: string, options: any) => {
   try {
     const foptions = options ?? {};
     const _options = {
       ...foptions,
       headers: {
-        ContentType: 'application/json',
+        'content-type': 'application/json',
         'x-app-version': '1.0.0',
         'x-timestamp': String(new Date()),
-        'x-channel': 'w',
-        'x-device-id': window?.navigator?.userAgent,
+        'x-channel': 'WA',
+        'x-device-id': 'apidog',
+        'x-lat': options.lat,
+        'x-long': options.long,
         Authorization: options.requestType === 'Basic' ? `Basic ${window.btoa(`${process.env.NEXT_PUBLIC_BASIC_USER}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`)}` : '',
         ...(foptions.headers || {}),
       },

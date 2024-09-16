@@ -10,6 +10,7 @@ import Card from './Card'
 type AvatarCarouselData = {
   id: number
   name: string
+  address: string
   image?: any
   instrument: string
 }
@@ -35,6 +36,7 @@ const AvatarCarousel: FC<AvatarCarouselProps> = ({ title, data }) => {
           <Card
             key={index}
             name={item.name}
+            address={item.address}
             image={item.image ?? PlaceholderCardImage}
             instrument={item.instrument}
             onClick={() =>

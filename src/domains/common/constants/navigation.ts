@@ -1,4 +1,4 @@
-export const EXCLUDE_TOPNAV_ROUTES = ['/onboard', '/login', '/register']
+export const EXCLUDE_TOPNAV_ROUTES = ['/onboard', '/session', '/login', '/register']
 export const EXCLUDE_BOTTOMNAV_ROUTES = [
   '/onboard',
   '/login',
@@ -7,7 +7,11 @@ export const EXCLUDE_BOTTOMNAV_ROUTES = [
   '/create-session/add-member',
   '/musician',
   '/venue-list',
-  '/venue'
+  '/payment',
+  '/thankyou',
+  '/venue',
+  '/session',
+  '/notification'
 ]
 export const INCLUDE_MUTATION_ROUTES = [
   '/create-session'

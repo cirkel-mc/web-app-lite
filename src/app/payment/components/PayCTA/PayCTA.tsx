@@ -2,19 +2,21 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Button from '@/views/common/ui/components/Button'
 
 function PayCTA() {
   const router = useRouter()
   return (
-    <div className="fixed bottom-0 left-0 shadow-2xl w-full px-4 py-4 bg-primary-50">
-      <div className="max-w-[500px] mx-auto flex items-center justify-between">
-        <p className="text-white">Rp. 170.000/hour</p>
-        <button
-          className="bg-white px-2 py-2 rounded-lg"
+    <div className="fixed bottom-0 left-0 shadow-2xl w-full px-4 py-4 bg-white z-10">
+      <div className="max-w-[500px] mx-auto flex items-center justify-between bg-white">
+        <p className="text-gray-600 font-medium">Rp. 170.000</p>
+        <Button
+          variant='primary' round='md' size='md'
+          classes='w-fit'
           onClick={() => router.push('/thankyou')}
         >
           Book Now!
-        </button>
+        </Button>
       </div>
     </div>
   )

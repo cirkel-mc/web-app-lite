@@ -31,7 +31,7 @@ const Loader = () => {
           role="button"
           className="flex flex-col justify-center items-center gap-1 shimmer pt-2 pb-1 px-2 rounded-md"
         >
-          <FontAwesomeIcon icon={faAdd} className="w-4 h-4 text-white" />
+          <FontAwesomeIcon icon={faAdd} className="w-4 h-4 text-white ml-3" />
           <span className="text-[12px] text-white">Create</span>
         </div>
         <Item

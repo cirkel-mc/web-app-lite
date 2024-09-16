@@ -10,11 +10,12 @@ interface CardProps {
   src: string
   title: string
   price: string
+  address: string
   onClick: () => void
 }
 
 const CustomCard: FC<CardProps> = (props) => {
-  const { src, title, price, onClick } = props
+  const { src, title, price, address, onClick } = props
 
   const handleBuy = () => {
     emitter.emit('@buy-from-card', { title, price, src })
@@ -24,11 +25,10 @@ const CustomCard: FC<CardProps> = (props) => {
     <Card
       src={src}
       name={title}
+      address={address}
       price={price}
       onClick={onClick}
       onBuy={handleBuy}
-      btnText="Book"
-      withCta
     />
   )
 }

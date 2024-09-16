@@ -7,36 +7,38 @@ interface CardProps {
   src: string
   name: string
   price: string
-  btnText: string
+  address: string
+  btnText?: string
   onClick: () => void
   onBuy: () => void
-  withCta: boolean
+  withCta?: boolean
   isDisabled?: boolean
 }
 
 function Card(props: CardProps) {
-  const { src, name, price, btnText, withCta, isDisabled, onClick, onBuy } =
+  const { src, name, price, address, btnText, withCta, isDisabled, onClick, onBuy } =
     props
 
   return (
     <div
-      className="flex flex-col rounded-[10px] p-4 lg:p-5 relative  cursor-pointer"
+      className="flex flex-col rounded-[10px] relative  cursor-pointer pb-4"
       style={{ boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px 0px' }}
     >
-      <div className="relative w-[153px] h-[164px]" onClick={onClick}>
+      <div className="relative w-[180px] h-[180px]" onClick={onClick}>
         <Image
           src={src ?? PlaceholderImage}
           fill
           alt=""
-          className="rounded-[10px]"
+          className="rounded-t-[10px]"
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <div className="flex flex-col items-center justify-center mt-[10px] px-[2px]">
+      <div className="flex flex-col items-center justify-start mt-[10px] px-[2px]">
         <p className="text-2xl text-center font-semibold text-ellipsis overflow-hidden line-clamp-2 mb-1 leading-[29px]">
           {name}
         </p>
-        <p className="text-base">{price}</p>
+        <p className="text-base text-gray-600 font-medium">{price}</p>
+        <p className='text-gray-500 text-sm'>{address}</p>
       </div>
       {withCta && (
         <div className="w-full px-2 py-2 flex justify-center mt-2">
